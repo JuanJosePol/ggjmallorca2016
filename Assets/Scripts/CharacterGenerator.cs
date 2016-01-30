@@ -28,6 +28,7 @@ public class CharacterGenerator : MonoBehaviour {
 	void GenerateChar() {
 		faceBase.GetComponent<MeshRenderer>().material.color=GetRandomColorFromPalette(skinPalette);
 		hairBase.GetComponent<MeshRenderer>().material.color=GetRandomColorFromPalette(hairPalette);
+		bodyBase.GetComponent<MeshRenderer>().material.color=new Color(Random.value, Random.value, Random.value);
 		
 		hairBase.mesh=AssetCatalog.instance.hairs.GetRandom();
 		bodyBase.mesh=AssetCatalog.instance.bodies.GetRandom();

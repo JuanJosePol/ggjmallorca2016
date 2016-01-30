@@ -6,6 +6,8 @@ public class Walker : MonoBehaviour
 {
 	private NavMeshAgent navAgent;
 	public bool isJammer=false;
+	
+	private float turningSpeed=5;
 
     void Awake()
     {
@@ -54,8 +56,8 @@ public class Walker : MonoBehaviour
         Vector3 targetDir = (targetPos - transform.position).normalized;
         while ((targetDir - transform.forward).magnitude > 0.1f)
         {
-            Vector3 dir = Vector3.RotateTowards(transform.forward, targetDir, Time.deltaTime * 2, 1);
-            transform.rotation = Quaternion.LookRotation(dir, Vector3.up);
+	        Vector3 dir = Vector3.RotateTowards(transform.forward, targetDir, Time.deltaTime * turningSpeed, 1);
+            transform.rotation = Quaternion.LookRotation(dir);
             yield return null;
         }
     }
