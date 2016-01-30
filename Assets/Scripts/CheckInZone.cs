@@ -54,12 +54,14 @@ public class CheckInZone : MonoBehaviour, IStaffAssignation
 
     public void OnStaffReady()
     {
+        assignedStaff.walker.TurnTo(checkInPosition.position);
         staffReady = true;
         if (jammerReady) Process();
     }
 
     public void OnJammerReady()
     {
+        jammer.walker.TurnTo(staffPosition.position);
         jammerReady = true;
         if (staffReady) Process();
 
