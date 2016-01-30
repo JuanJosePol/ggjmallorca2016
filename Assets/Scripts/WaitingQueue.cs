@@ -29,17 +29,16 @@ public class WaitingQueue : MonoBehaviour
         jammers.Add(newJammer);
         Vector3 waitPos = positions[jammers.Count - 1].position;
         waitPos += positions[jammers.Count - 1].right * Random.Range(-0.5f, 0.5f);
-        newJammer.walker.MoveTo(waitPos,() => { newJammer.walker.TurnTo(this.transform.position + this.transform.forward); });
+        newJammer.walker.MoveTo(waitPos, true,() => { newJammer.walker.TurnTo(this.transform.position + this.transform.forward); });
     }
 
     public Jammer GetNextJammer()
     {
-
         Jammer j = jammers[0];
         jammers.RemoveAt(0);
         for (int i = 0; i < jammers.Count; i++)
         {
-            jammers[i].walker.MoveTo(positions[i].position);
+            jammers[i].walker.MoveTo(positions[i].position, true);
         }
         return j;
     }

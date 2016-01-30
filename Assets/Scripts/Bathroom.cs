@@ -33,7 +33,7 @@ public class Bathroom : MonoBehaviour
         if (this.jammer == null)
         {
             this.jammer = newJammer;
-            jammer.walker.MoveTo(enterPosition.position, OnJammerReady);
+            jammer.walker.MoveTo(enterPosition.position, true, OnJammerReady);
         }
         else
         {
@@ -49,7 +49,7 @@ public class Bathroom : MonoBehaviour
     public void Process()
     {
         // Enter the bathroom
-        jammer.walker.MoveTo(poopPosition.position, () => { StartCoroutine(UseBathroom()); });
+        jammer.walker.MoveTo(poopPosition.position, false, () => { StartCoroutine(UseBathroom()); });
     }
 
     public IEnumerator UseBathroom()
@@ -67,7 +67,7 @@ public class Bathroom : MonoBehaviour
     public void ExitBathroom()
     {
         WCMeshFilter.mesh = OpenWC.sharedMesh;
-        jammer.walker.MoveTo(enterPosition.position, () => { FreeBathroom(); });
+        jammer.walker.MoveTo(enterPosition.position, false, () => { FreeBathroom(); });
     }
 
     public void FreeBathroom()

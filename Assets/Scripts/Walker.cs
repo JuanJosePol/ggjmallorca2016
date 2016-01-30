@@ -19,16 +19,15 @@ public class Walker : MonoBehaviour
 	    }
     }
 
-    public void MoveTo(Vector3 position)
+    public void MoveTo(Vector3 position, bool delayed)
     {
-        MoveTo(position, null);
+        MoveTo(position, delayed, null);
     }
 
-    public void MoveTo(Vector3 position, Action onMoveFinished)
+    public void MoveTo(Vector3 position, bool delayed, Action onMoveFinished)
     {
         StopAllCoroutines();
-        
-        StartCoroutine(MoveCoroutine(position, onMoveFinished));
+        StartCoroutine(MoveCoroutine(position, delayed, onMoveFinished));
     }
 
     public void TurnTo(Vector3 position)
@@ -37,9 +36,10 @@ public class Walker : MonoBehaviour
         StartCoroutine(TurnCoroutine(position));
     }
 
-    IEnumerator MoveCoroutine(Vector3 position, Action onMoveFinished)
+    IEnumerator MoveCoroutine(Vector3 position, bool delayed, Action onMoveFinished)
     {
-        yield return new WaitForSeconds(UnityEngine.Random.Range(0.5f, 1.0f));
+        if (delayed)
+            yield return new WaitForSeconds(UnityEngine.Random.Range(0.5f, 1.0f));
 
         navAgent.SetDestination(position);
 

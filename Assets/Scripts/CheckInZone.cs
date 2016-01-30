@@ -28,7 +28,7 @@ public class CheckInZone : MonoBehaviour, IStaffAssignation
         if (this.jammer == null)
         {
             this.jammer = newJammer;
-            jammer.walker.MoveTo(checkInPosition.position, OnJammerReady);
+            jammer.walker.MoveTo(checkInPosition.position, true, OnJammerReady);
         }
         else
         {
@@ -42,7 +42,7 @@ public class CheckInZone : MonoBehaviour, IStaffAssignation
 
         newStaff.Assign(this);
         assignedStaff = newStaff;
-        assignedStaff.walker.MoveTo(staffPosition.position, OnStaffReady);
+        assignedStaff.walker.MoveTo(staffPosition.position, false, OnStaffReady);
     }
 
     public void UnassignStaff()
@@ -94,7 +94,7 @@ public class CheckInZone : MonoBehaviour, IStaffAssignation
     void OnDrawGizmos()
     {
         Gizmos.color = Color.green;
-        BoxCollider c = (BoxCollider)GetComponent<BoxCollider>();
+        BoxCollider c = GetComponent<BoxCollider>();
 	    Gizmos.DrawWireCube(transform.TransformPoint(c.center), c.size);
     }
 }
