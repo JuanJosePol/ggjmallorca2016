@@ -4,7 +4,8 @@ using System.Collections;
 public class Staff : MonoBehaviour
 {
     [HideInInspector]
-    public Walker walker;
+	public Walker walker;
+	public float stamina=100;
 
     [HideInInspector]
     private IStaffAssignation assignation;
@@ -20,6 +21,10 @@ public class Staff : MonoBehaviour
         GameManager.instance.staff.Add(this);
         walker = gameObject.AddComponent<Walker>();
     }
+	
+	void Start() {
+		InfoSlotListManager.instanceStaffList.AddStaffSlot(this);
+	}
 
     public void Assign(IStaffAssignation newAssignation)
     {

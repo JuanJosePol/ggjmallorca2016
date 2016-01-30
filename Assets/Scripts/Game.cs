@@ -27,7 +27,8 @@ public class Game
     {
         name = gameName;
         progress = 0;
-        this.requieredEffort = effort;
+	    this.requieredEffort = effort;
+	    InfoSlotListManager.instanceGameList.AddGameSlot(this);
     }
     
     public void Develop(int jammersWorking)
