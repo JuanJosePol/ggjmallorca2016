@@ -10,6 +10,14 @@ public class Jammer : MonoBehaviour
     [HideInInspector]
     public Table assignedTable { get; private set; }
 
+    public bool isWorking
+    {
+        get
+        {
+            return assignedTable != null && assignedTable.jammers.Contains(this);
+        }
+    }
+
     void Awake()
     {
         GameManager.instance.jammers.Add(this);

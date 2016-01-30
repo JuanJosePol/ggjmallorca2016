@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour
 
     #endregion
 
+    public float troubleFrequency = 0.1f;
+
     // Game Objects lists
     [HideInInspector]
     public List<Table> tables = new List<Table>();
@@ -29,9 +31,11 @@ public class GameManager : MonoBehaviour
     public List<Staff> staff = new List<Staff>();
     [HideInInspector]
     public List<Bathroom> bathrooms = new List<Bathroom>();
-    
+    [HideInInspector]
     public List<Game> games = new List<Game>();
-    public int space = 0;
+
+    private int space = 0;
+    private float timeSinceLastProblem = 0;
 
     public bool hasRoomForJammers
     {
@@ -47,6 +51,51 @@ public class GameManager : MonoBehaviour
         {
             space += t.chairPosition.Length;
         }
+    }
+    
+    void Update()
+    {
+        timeSinceLastProblem += Time.deltaTime;
+
+        if (timeSinceLastProblem > 1 / troubleFrequency)
+        {
+            timeSinceLastProblem = 0;
+
+            GenerateBathroomProblem();
+        }
+    }
+
+    private void GenerateBathroomProblem()
+    {
+        bool freeBathroom = false;
+        foreach (var b in bathrooms)
+        {
+            if (b.CanEnterJammer())
+            {
+                freeBathroom = true;
+                break;
+            }
+        }
+        if (!freeBathroom) return;
+
+        Jammer troubledJammer = PickRandomJammer();
+        if (troubledJammer != null)
+            troubledJammer.FindFreeBathroom();
+
+    }
+
+    private Jammer PickRandomJammer()
+    {
+        List<Jammer> workingJammers = new List<Jammer>();
+        foreach (var j in this.jammers)
+        {
+            if (j.isWorking)
+                workingJammers.Add(j);
+        }
+
+        if (workingJammers.Count == 0) return null;
+
+        return workingJammers[Random.Range(0, workingJammers.Count)];
     }
 
     public Game CreateNewGame()
