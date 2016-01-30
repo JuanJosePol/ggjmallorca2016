@@ -102,6 +102,6 @@ public class CheckInZone : MonoBehaviour, IStaffAssignation
     {
         Gizmos.color = Color.green;
         BoxCollider c = (BoxCollider)GetComponent<BoxCollider>();
-        Gizmos.DrawCube(transform.TransformPoint(c.center), c.size);
+	    Gizmos.DrawWireCube(transform.TransformPoint(c.center), c.size);
     }
 }
