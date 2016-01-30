@@ -4,22 +4,29 @@ using System.Collections;
 public class JammerGenerator : MonoBehaviour
 {
     public float generationFreq = 1;
-    public GameObject jammerPrefab;
+    public Jammer jammerPrefab;
 
     private float timeSinceLastGeneration = 0;
+    private CheckInZone checkInZone;
+
+    void Awake()
+    {
+        checkInZone = FindObjectOfType<CheckInZone>();
+    }
 
     void Update()
     {
         timeSinceLastGeneration += Time.deltaTime;
 
-        if (timeSinceLastGeneration > 1 / generationFreq)
+        if ((checkInZone.CanEnterJammer()) && (timeSinceLastGeneration > 1 / generationFreq))
         {
             timeSinceLastGeneration = 0;
 
             if (GameManager.instance.HasRoom)
             {
-                GameObject jammer = Instantiate(jammerPrefab);
+                Jammer jammer = Instantiate(jammerPrefab);
                 jammer.transform.position = this.transform.position;
+                checkInZone.AddJammer(jammer);
             }
         }
     }

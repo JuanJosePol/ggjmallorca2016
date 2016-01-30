@@ -3,22 +3,21 @@ using System.Collections;
 
 public class Jammer : MonoBehaviour
 {
-    private NavMeshAgent navAgent;
+    [HideInInspector]
+    public Walker walker;
+    
     private GameObject chair;
 
     void Awake()
     {
-        navAgent = GetComponent<NavMeshAgent>();
         GameManager.instance.jammers.Add(this);
+        walker = gameObject.AddComponent<Walker>();
     }
 
-	// Use this for initialization
-	void Start () {
-        FindFreeTable();
-	}
-	
+    // This is a Debug Function
     public void FindFreeTable()
     {
+        Debug.LogWarning("Debug Function called");
         foreach (var t in GameManager.instance.tables)
         {
             if (t.jammers.Count < 4)
@@ -29,6 +28,6 @@ public class Jammer : MonoBehaviour
             }
         }
 
-        navAgent.SetDestination(chair.transform.position);
+        walker.MoveTo(chair.transform.position);
     }
 }

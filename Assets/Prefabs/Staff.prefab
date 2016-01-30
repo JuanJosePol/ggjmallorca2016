@@ -9,6 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 435568}
   - 195: {fileID: 19532540}
+  - 114: {fileID: 11452890}
   m_Layer: 0
   m_Name: Staff
   m_TagString: Untagged
@@ -513,6 +514,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 176210}
   m_Mesh: {fileID: 4300000, guid: 03c4cdebc812c6d4baba046032da6ecc, type: 3}
+--- !u!114 &11452890
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 145258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d7e89d7c71584a4c8e046d034ceaba0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walker: {fileID: 0}
 --- !u!114 &11463190
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -537,12 +550,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa479fa0193e8b34c9ac95b23fcab112, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  headBase: {fileID: 158192}
-  bodyBase: {fileID: 145590}
+  headParent: {fileID: 158192}
+  bodyParent: {fileID: 145590}
   faceBase: {fileID: 3306144}
   hatBase: {fileID: 3307920}
   hairBase: {fileID: 3334578}
   eyesBase: {fileID: 3317692}
+  bodyBase: {fileID: 3314584}
   skinPalette: {fileID: 2800000, guid: b534e441759d3664f9fe6684e19ba173, type: 3}
   hairPalette: {fileID: 2800000, guid: a6556bb96eaf94946872671ef16e4925, type: 3}
 --- !u!195 &19532540
