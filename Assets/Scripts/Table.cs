@@ -8,15 +8,17 @@ public class Table : MonoBehaviour
 
     public List<Jammer> jammers = new List<Jammer>();
 
-    public bool hasRoom { get { return jammers.Count < 4; } }
+    public bool hasRoom { get { return jammers.Count < chairPosition.Length; } }
 
     void Awake()
     {
         GameManager.instance.tables.Add(this);
     }
 
-    public void AddJammer(Jammer jammer)
+    public void AddJammer(Jammer newJammer)
     {
-        jammers.Add(jammer);
+        jammers.Add(newJammer);
+        newJammer.AssignChair(chairPosition[jammers.Count - 1]);
+        newJammer.walker.MoveTo(chairPosition[jammers.Count - 1].transform.position,() => { newJammer.walker.TurnTo(transform.position); });
     }
 }

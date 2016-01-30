@@ -15,20 +15,22 @@ public class Jammer : MonoBehaviour
 	    walker.isJammer=true;
     }
 
+    public void AssignChair(GameObject newChair)
+    {
+        this.chair = newChair;
+    }
+
     // This is a Debug Function
     public void FindFreeTable()
     {
         Debug.LogWarning("Debug Function called");
         foreach (var t in GameManager.instance.tables)
         {
-            if (t.jammers.Count < 4)
+            if (t.hasRoom)
             {
                 t.AddJammer(this);
-                this.chair = t.chairPosition[t.jammers.Count - 1];
                 break;
             }
         }
-
-        walker.MoveTo(chair.transform.position);
     }
 }
