@@ -11,7 +11,8 @@ public class Jammer : MonoBehaviour
     void Awake()
     {
         GameManager.instance.jammers.Add(this);
-        walker = gameObject.AddComponent<Walker>();
+	    walker = gameObject.AddComponent<Walker>();
+	    walker.isJammer=true;
     }
 
     // This is a Debug Function

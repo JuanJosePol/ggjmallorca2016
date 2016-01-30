@@ -57,7 +57,7 @@ public class WaitingQueue : MonoBehaviour
         Gizmos.color = Color.red;
         for (int i = 0; i < MaxCapacity; i++)
         {
-            Gizmos.DrawSphere(transform.position - transform.forward * i * interspace, 0.5f);
+	        Gizmos.DrawWireSphere(transform.position - transform.forward * i * interspace, 0.5f);
         }
     }
 }

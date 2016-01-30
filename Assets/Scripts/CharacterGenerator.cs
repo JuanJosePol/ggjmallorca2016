@@ -31,7 +31,11 @@ public class CharacterGenerator : MonoBehaviour {
 		
 		hairBase.mesh=AssetCatalog.instance.hairs.GetRandom();
 		bodyBase.mesh=AssetCatalog.instance.bodies.GetRandom();
-		hatBase.mesh=AssetCatalog.instance.hats.GetRandom();
+		if (Random.value<0.1f) {
+			hatBase.mesh=AssetCatalog.instance.hats.GetRandom();
+		} else {
+			hatBase.mesh=null;
+		}
 	}
 	
 	Color GetRandomColorFromPalette(Texture2D palette) {

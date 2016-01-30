@@ -4,11 +4,17 @@ using System.Collections;
 
 public class Walker : MonoBehaviour
 {
-    private NavMeshAgent navAgent;
+	private NavMeshAgent navAgent;
+	public bool isJammer=false;
 
     void Awake()
     {
-        navAgent = GetComponent<NavMeshAgent>();
+	    navAgent = GetComponent<NavMeshAgent>();
+	    if (isJammer) {
+	    	navAgent.speed=2+(UnityEngine.Random.value-0.5f)*0.2f;
+	    } else {
+	    	navAgent.speed=2;
+	    }
     }
 
     public void MoveTo(Vector3 position)
