@@ -1,0 +1,124 @@
+v5.1.1
+	Fixed compile error when building player with BeholdR included
+	Fixed version numbering
+v5.1.0
+	Massive code cleanup
+	Added support for multiple effects of the same type
+	Fixed issues with the new cinematic effect Depth of Field
+	Removed experimental features
+	Presets can be picked with Open File dialog
+	Scene GUI Controls using icons for smaller footprint
+v5.0.0
+	Dropped support for Unity 4.x
+	Tonemapping effect always set to be the last effect in the chain
+	Added the option to disable BeholdR on a per-view basis
+	Suppress BeholdR if the Scene View is not in Shaded mode
+	Save Post Effects Stack Preset
+	Load Post Effects Stack Preset
+	Undo Load Preset
+	Preset Matrix window for quick comparison between presets
+		Button to add missing components from preset
+		Button to remove existing components from preset
+		Added support for enum field type
+		Don't display editor field for Hidden shaders
+	Fixed Preset Map not serialized between editor sessions
+	Using Beholder Namespace
+	Fixed BeholdR Inspector section header drawing
+	Fixed Tonemapping collision with internal Scene View tonemapping in Unity 5
+	Fixed Scene Views not updating after sorting the Post Effects list
+	Moved SceneGuiDrawer to be an editor class	
+	Fixed Post Effects list width stretching the Inspector
+	Fixed performance issue where an expensive LINQ query was constructed each frame
+	Fixed error on build due to references to Editor Classes and namespaces
+	Reorder the Post Effects list to reorder the components on the BeholdR game object
+	Stopped using absolute asset paths for icon loading
+	Fixed bug where saving a preset would disable BeholdR
+	Fixed reorder not happening after adding a new Post Effect
+	Fixed a NullReferenceException when clicking the "Force Reorder" button
+v4.0.4
+	Fixed ColorCorrectionCurves and ColorCorrectionLookup not updating in Unity 5	
+v4.0.3
+	Fixed build errors
+	Improved performance of the SyncComponents method
+	Improved appearance of the BeholdR Inspector
+	Code organization and cleanup
+v4.0.2
+	Fixed code compatibility with Unity 5
+	Fixed double tonemapping since Unity 5 adds it internally
+	Fixed Stack Overflow when cleaning missing post effects from the scene camera
+v4.0.1
+	Fixed NullReferenceException error that occurs the first time BeholdR is imported
+	Removed redundant variable that was causing a warning to show up in the Console
+v4.0.0
+	Updated auto-discovery with base types PostEffectsBase and ImageEffectBase
+	Updated auto-discovery with OnRenderImage method
+	Improved version check
+	Fold-able Inspector sections
+	Match scene background color to camera
+	Added hierarchy icon/button for quick activation and identifying currently active instance
+v3.3.0
+	Removed redundant code
+	Made GuiDrawer a Singleton
+	Added extension method to GameObject that allows getting a component by specifying its type
+v3.2.1
+	Fixed compatibility with Unity 4.0.0
+	Removed unused fields on BeholdR class
+	Fixed warnings after build
+v3.2.0
+	Added option to attempt to discover post effects addition/removal automatically
+	Added button to automatically add Image Effects
+	Fixed conflicts with Scene View Filtering (search & LOD preview) which caused Unity to crash
+	Fixed compile error with projects that do not contain post processes or image effects
+	Link button displays correctly for the linked Scene View and changes color to indicate a link is active
+	Auto Discovery is set by editor pref to save between components/sessions
+	Auto Disable is set by editor pref to save between components/sessions
+	Fixed specific problem with ColorCorrectionLut losing reference to the LUT texture
+	Updated Manual
+v3.1.0
+	Added web-based version check and notification
+	Updated manual
+	More code documentation
+	Fixed performance drop when checking inspectors for LODGroup component visibility
+	Fixed null reference exception when trying to clean null post effects
+v3.0.1
+	Fixed GUI controls positioning when a Camera Preview is present
+	Suppressing BeholdR component synchronization while an inspector for a LODGroup component is visible
+v3.0.0
+	Improved GUI controls rendering
+	New Inspector GUI
+	Removed custom icon and scene title
+v2.1.2
+	Fixed bug where could not build the project with the script attached to a camera
+v2.1.1
+	Repaint scene view when clicking on sync button
+v2.1.0
+	Added custom icon and title to scene view when BeholdR is active
+	Added anchor option to Sync button
+v2.0.0
+	Fixed strongly typed component reference
+	Added option to match camera position & rotation to scene camera
+v1.9.0
+	Fixed compatibility with Unity 4.0.0
+v1.8.1
+	Organized code a little
+v1.8.0
+	Fixed errors when trying to synchronize native scene camera components
+	Fixed scene cameras not updating when overriding a post effect list entry
+v1.7.0
+	Fixed compatibility issue with ColorCorrectionCurves where changing the curves won't update the scene
+v1.6.0
+	Fixed post effects not removed from multiple scene views
+v1.5.0
+	Added support for multiple scene views
+v1.4.0
+	Added button to clean empty list elements
+v1.3.0
+	Fixed null reference on switching editor layout
+	Fixed not being able to manually increase Post Effects list size
+	Fixed stack overflow after removing an element from the list that was manually expanded
+	Fixed not being able to close the scene view window
+v1.1.0
+	Added support for projects that don't include image effects
+v1.0.0
+	-Initial version-
+	Copy post processes from camera to scene camera

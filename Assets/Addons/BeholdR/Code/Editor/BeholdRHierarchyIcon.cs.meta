@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 2ec454f808edcc543af9e29763991d54
+labels:
+- VirtualMirror
+- SceneView
+- HDR
+- PostFX
+- PostEffects
+- PostProcess
+- TE
+- TEWYSIWYG
+- WYSIWYG
+- BeholdR
+- Beholder
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

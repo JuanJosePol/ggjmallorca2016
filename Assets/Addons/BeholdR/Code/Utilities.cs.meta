@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: aba0d4d22cd6f104b87106dc4c53f6ad
+labels:
+- VirtualMirror
+- HDR
+- SceneView
+- PostFX
+- PostEffects
+- PostProcess
+- TE
+- TEWYSIWYG
+- WYSIWYG
+- Beholder
+- BeholdR
+timeCreated: 1427691312
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

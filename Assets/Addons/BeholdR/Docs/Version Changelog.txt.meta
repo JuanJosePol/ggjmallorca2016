@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 0c433d29530eac84a9e111cacf9c019c
+labels:
+- VirtualMirror
+- HDR
+- SceneView
+- PostFX
+- PostEffects
+- PostProcess
+- TE
+- TEWYSIWYG
+- WYSIWYG
+- Beholder
+- BeholdR
+TextScriptImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
