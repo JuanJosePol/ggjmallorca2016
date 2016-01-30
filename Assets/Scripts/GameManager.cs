@@ -39,10 +39,10 @@ public class GameManager : MonoBehaviour
 
     public void OnClick(MonoBehaviour clicked)
     {
-        if (clicked is Staff)
-        {
-            Staff s = (Staff)clicked;
-        }
+        //if (clicked is Staff)
+        //{
+        //    Staff s = (Staff)clicked;
+        //}
 
         //if (clicked is Problem)
         //{
