@@ -46,7 +46,7 @@ public class Table : MonoBehaviour
             newJammer.AssignTable(this);
         }
 
-        newJammer.walker.MoveTo(assignedChairs[newJammer].position,() =>
+        newJammer.walker.MoveTo(assignedChairs[newJammer].position, true,() =>
         {
             newJammer.walker.TurnTo(assignedChairs[newJammer].position);
             StartWorking(newJammer);

@@ -48,7 +48,7 @@ public abstract class OnSiteProblem : MonoBehaviour, IStaffAssignation
 
         newStaff.Assign(this);
         assignedStaff = newStaff;
-        newStaff.walker.MoveTo(staffPosition, OnStaffReady);
+        newStaff.walker.MoveTo(staffPosition, false, OnStaffReady);
     }
 
     public void OnStaffReady()
