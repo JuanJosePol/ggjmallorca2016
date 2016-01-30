@@ -15,6 +15,21 @@ public class VoxelAssetsImporter : AssetPostprocessor
                     AssetDatabase.Refresh();
                 }
             }
+	        
+	        if (asset.Contains(".png") && asset.Contains("Resources/UI"))
+	        {
+		        TextureImporter importer = (TextureImporter)TextureImporter.GetAtPath(asset);
+		        importer.npotScale=TextureImporterNPOTScale.None;
+		        importer.filterMode=FilterMode.Point;
+		        importer.textureFormat=TextureImporterFormat.RGBA32;
+		        importer.textureType=TextureImporterType.Advanced;
+		        importer.spriteImportMode=SpriteImportMode.Single;
+		        importer.isReadable=true;
+		        importer.mipmapEnabled=false;
+		        //importer.spritePixelsPerUnit=100;
+		        importer.spriteBorder=new Vector4(8,8,8,8);
+	        }
         }
     }
+	
 }

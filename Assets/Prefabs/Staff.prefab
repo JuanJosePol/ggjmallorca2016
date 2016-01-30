@@ -539,7 +539,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   frequency: 10
   amplitude: 0.05
-  swing: 1
+  swing: 2
 --- !u!114 &11478198
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -591,6 +591,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 3a97c462fc6439b47b550d2fc6de9d14, type: 2}
+    - target: {fileID: 0}
+      propertyPath: swing
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 145258}
