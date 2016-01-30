@@ -17,9 +17,6 @@ public class Workplace : MonoBehaviour {
 	void Start () {
 		PickJammerType();
 		PickActiveObject();
-		
-		//TODO: Claim the workplace when the jammer moves there for the first time
-		ClaimWorkplace();
 	}
 	
 	void PickJammerType() {
@@ -50,10 +47,6 @@ public class Workplace : MonoBehaviour {
 			claimed=true;
 			activeObject.SetActive(true);
 		}
-	}
-	
-	void Update () {
-		
 	}
 }
 

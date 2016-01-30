@@ -46,9 +46,11 @@ public class Table : MonoBehaviour
             newJammer.AssignTable(this);
         }
 
-        newJammer.walker.MoveTo(assignedChairs[newJammer].position, true,() =>
+        Transform chair = assignedChairs[newJammer];
+        newJammer.walker.MoveTo(chair.position, true,() =>
         {
-            newJammer.walker.TurnTo(assignedChairs[newJammer].position);
+            chair.GetComponent<Chair>().workplace.ClaimWorkplace();
+            newJammer.walker.TurnTo(chair.position + chair.forward);
             StartWorking(newJammer);
         });
     }
