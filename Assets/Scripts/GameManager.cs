@@ -61,14 +61,13 @@ public class GameManager : MonoBehaviour
         {
             timeSinceLastProblem = 0;
 
-            if (UnityEngine.Random.value > 0.5f)
-            {
+            float problemType = UnityEngine.Random.value;
+            if (problemType < 0.3f)
                 GenerateBathroomProblem();
-            }
+            else if(problemType < 0.6f)
+                GenerateTrollStaff();
             else
-            {
                 GenerateWiFiProblem();
-            }
         }
     }
 
@@ -95,6 +94,13 @@ public class GameManager : MonoBehaviour
         Jammer troubledJammer = PickRandomWorkingJammer();
         if (troubledJammer != null)
             troubledJammer.HaveWiFiProblem();
+    }
+
+    private void GenerateTrollStaff()
+    {
+        Jammer troubledJammer = PickRandomWorkingJammer();
+        if (troubledJammer != null)
+            troubledJammer.TrollStaff();
     }
 
     private Jammer PickRandomWorkingJammer()
