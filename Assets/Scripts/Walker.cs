@@ -55,7 +55,7 @@ public class Walker : MonoBehaviour
         while ((targetDir - transform.forward).magnitude > 0.1f)
         {
             Vector3 dir = Vector3.RotateTowards(transform.forward, targetDir, Time.deltaTime * 2, 1);
-            transform.rotation = Quaternion.LookRotation(dir);
+            transform.rotation = Quaternion.LookRotation(dir, Vector3.up);
             yield return null;
         }
     }

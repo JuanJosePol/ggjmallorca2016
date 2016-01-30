@@ -11,9 +11,4 @@ public class Staff : MonoBehaviour
         GameManager.instance.staff.Add(this);
         walker = gameObject.AddComponent<Walker>();
     }
-
-    public void OnClick()
-    {
-        GameManager.instance.selectedStaff = this;
-    }
 }
