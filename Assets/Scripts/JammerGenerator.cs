@@ -18,11 +18,10 @@ public class JammerGenerator : MonoBehaviour
     {
         timeSinceLastGeneration += Time.deltaTime;
 
-        if ((checkInZone.CanEnterJammer()) && (timeSinceLastGeneration > 1 / generationFreq))
+        if (timeSinceLastGeneration > 1 / generationFreq)
         {
             timeSinceLastGeneration = 0;
-
-            if (GameManager.instance.HasRoom)
+            if (checkInZone.CanEnterJammer())
             {
                 Jammer jammer = Instantiate(jammerPrefab);
                 jammer.transform.position = this.transform.position;

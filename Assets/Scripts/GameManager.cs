@@ -29,26 +29,30 @@ public class GameManager : MonoBehaviour
     public List<Staff> staff = new List<Staff>();
     [HideInInspector]
     public List<Bathroom> bathrooms = new List<Bathroom>();
+    
+    public List<Game> games = new List<Game>();
+    public int space = 0;
 
-    // Input Selection
-    [HideInInspector]
-    public Staff selectedStaff;
-
-    public bool HasRoom
+    public bool hasRoomForJammers
     {
-        get { return jammers.Count < tables.Count * 4; }
+        get
+        {
+            return jammers.Count < space;
+        }
     }
 
-    public void OnClick(MonoBehaviour clicked)
+    void Start()
     {
-        //if (clicked is Staff)
-        //{
-        //    Staff s = (Staff)clicked;
-        //}
+        foreach (var t in tables)
+        {
+            space += t.chairPosition.Length;
+        }
+    }
 
-        //if (clicked is Problem)
-        //{
-        //    Problem p = (Problem) 
-        //}
+    public Game CreateNewGame()
+    {
+        Game game = new Game("AAA", 20);
+        games.Add(game);
+        return game;
     }
 }

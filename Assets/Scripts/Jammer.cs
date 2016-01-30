@@ -44,7 +44,7 @@ public class Jammer : MonoBehaviour
             if (b.CanEnterJammer())
             {
                 b.AddJammer(this);
-                this.assignedTable.RemoveJammer(this);
+                this.assignedTable.StopWorking(this);
             }
         }
     }

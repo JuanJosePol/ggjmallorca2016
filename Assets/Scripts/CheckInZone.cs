@@ -20,13 +20,11 @@ public class CheckInZone : MonoBehaviour, IStaffAssignation
 
     public bool CanEnterJammer()
     {
-        return jammer == null || !waitingQueue.isFull;
+        return GameManager.instance.hasRoomForJammers && !waitingQueue.isFull;
     }
 
     public void AddJammer(Jammer newJammer)
     {
-        if (!CanEnterJammer()) throw new System.Exception("No more jammer allowed in CheckInZone.");
-
         if (this.jammer == null)
         {
             this.jammer = newJammer;
