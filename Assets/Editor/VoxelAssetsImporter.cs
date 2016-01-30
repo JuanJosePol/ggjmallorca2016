@@ -20,7 +20,7 @@ public class VoxelAssetsImporter : AssetPostprocessor
 	        {
 		        TextureImporter importer = (TextureImporter)TextureImporter.GetAtPath(asset);
 		        importer.npotScale=TextureImporterNPOTScale.None;
-		        importer.filterMode=FilterMode.Point;
+		        //importer.filterMode=FilterMode.Point;
 		        importer.textureFormat=TextureImporterFormat.RGBA32;
 		        importer.textureType=TextureImporterType.Advanced;
 		        importer.spriteImportMode=SpriteImportMode.Single;
