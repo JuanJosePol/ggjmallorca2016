@@ -19,7 +19,7 @@ public class WaitingQueue : MonoBehaviour
         {
             var t = new GameObject("wait"+i).transform;
             t.parent = this.transform;
-            t.localPosition = Vector3.zero - Vector3.forward * i * interspace;
+            t.localPosition = Vector3.zero - (Vector3.forward * i * interspace);
             positions[i] = t;
         }
     }
@@ -27,7 +27,9 @@ public class WaitingQueue : MonoBehaviour
     public void AddJammer(Jammer newJammer)
     {
         jammers.Add(newJammer);
-        newJammer.walker.MoveTo(positions[jammers.Count - 1].position,() => { newJammer.walker.TurnTo(this.transform.position + this.transform.forward); });
+        Vector3 waitPos = positions[jammers.Count - 1].position;
+        waitPos += positions[jammers.Count - 1].right * Random.Range(-0.5f, 0.5f);
+        newJammer.walker.MoveTo(waitPos,() => { newJammer.walker.TurnTo(this.transform.position + this.transform.forward); });
     }
 
     public Jammer GetNextJammer()
@@ -40,6 +42,10 @@ public class WaitingQueue : MonoBehaviour
             jammers[i].walker.MoveTo(positions[i].position);
         }
         return j;
+    }
+
+    void MoveGuy(int i) {
+
     }
 
     public bool isFull

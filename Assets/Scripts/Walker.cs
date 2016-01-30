@@ -27,26 +27,34 @@ public class Walker : MonoBehaviour
     public void MoveTo(Vector3 position, Action onMoveFinished)
     {
         StopAllCoroutines();
-        navAgent.SetDestination(position);
-        StartCoroutine(MoveCoroutine(onMoveFinished));
+        
+        StartCoroutine(MoveCoroutine(position, onMoveFinished));
     }
 
     public void TurnTo(Vector3 position)
     {
+        StopAllCoroutines();
         StartCoroutine(TurnCoroutine(position));
     }
 
-    IEnumerator MoveCoroutine(Action onMoveFinished)
+    IEnumerator MoveCoroutine(Vector3 position, Action onMoveFinished)
     {
+        yield return new WaitForSeconds(UnityEngine.Random.Range(0.5f, 1.0f));
+
+        navAgent.SetDestination(position);
+
+        float originalRadius = navAgent.radius;
+        navAgent.radius = 0.1f;
         // HACK let the NavAgent update itself
         yield return new WaitForEndOfFrame();
         yield return new WaitForEndOfFrame();
-
+        
         while (navAgent.remainingDistance > 0 && navAgent.pathStatus == NavMeshPathStatus.PathComplete)
         {
             yield return null;
         }
 
+        navAgent.radius = originalRadius;
         if (onMoveFinished != null)
             onMoveFinished();
     }

@@ -3,7 +3,7 @@ using System.Collections;
 
 public interface IStaffAssignation
 {
-    void AssignStaff(Staff staff);
+    void AssignStaff(Staff newStaff);
     void UnassignStaff();
     void Process();
     void OnStaffReady();

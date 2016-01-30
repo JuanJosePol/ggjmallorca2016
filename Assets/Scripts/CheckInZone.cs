@@ -40,14 +40,16 @@ public class CheckInZone : MonoBehaviour, IStaffAssignation
     {
         if (this.assignedStaff != null) throw new System.Exception("There is staff in this zone already");
 
+        newStaff.Assign(this);
         assignedStaff = newStaff;
         assignedStaff.walker.MoveTo(staffPosition.position, OnStaffReady);
     }
 
     public void UnassignStaff()
     {
+        StopAllCoroutines();
         staffReady = false;
-        throw new System.NotImplementedException();
+        assignedStaff = null;
     }
 
     public void OnStaffReady()
@@ -67,21 +69,12 @@ public class CheckInZone : MonoBehaviour, IStaffAssignation
     
     public void Process()
     {
-        StartCoroutine(Processing());
-        // TODO Notify first jammer
-        // TODO Remove first jammer from queue
-        // if there are more jammers
-            // TODO Move jammers
+        StartCoroutine(ProcessCoroutine());
     }
 
-    IEnumerator Processing()
+    IEnumerator ProcessCoroutine()
     {
-        float timeLeft = CheckInTime;
-        while (timeLeft > 0)
-        {
-            timeLeft -= Time.deltaTime;
-            yield return null;
-        }
+        yield return new WaitForSeconds(CheckInTime);
         jammerReady = false;
         jammer.FindFreeTable();
         jammer = null;
