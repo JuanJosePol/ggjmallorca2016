@@ -274,7 +274,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 189733092}
-  m_LocalRotation: {x: 0.40821794, y: -0.23456973, z: 0.109381676, w: 0.87542605}
+  m_LocalRotation: {x: 0.40821797, y: -0.23456974, z: 0.10938168, w: 0.8754261}
   m_LocalPosition: {x: 0, y: 20, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -289,6 +289,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 220986428}
   - 114: {fileID: 220986427}
+  - 114: {fileID: 220986429}
   m_Layer: 0
   m_Name: Scripts
   m_TagString: Untagged
@@ -323,6 +324,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 9
+--- !u!114 &220986429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 220986426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f06466c610f55c4592d32c5e4bb17d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bodies: []
+  eyes: []
+  hairs: []
+  hats: []
+  heads: []
 --- !u!1001 &297367399
 Prefab:
   m_ObjectHideFlags: 0
@@ -643,7 +660,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 423500, guid: c97181de9867cdb4a9005d34d307e77e, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0.7071068
+      value: 0.7071069
       objectReference: {fileID: 0}
     - target: {fileID: 423500, guid: c97181de9867cdb4a9005d34d307e77e, type: 2}
       propertyPath: m_LocalRotation.y
@@ -655,7 +672,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 423500, guid: c97181de9867cdb4a9005d34d307e77e, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 0.7071067
+      value: 0.70710677
       objectReference: {fileID: 0}
     - target: {fileID: 423500, guid: c97181de9867cdb4a9005d34d307e77e, type: 2}
       propertyPath: m_RootOrder
