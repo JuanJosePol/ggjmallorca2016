@@ -12,7 +12,7 @@ public class Staff : MonoBehaviour
 
 	static string[] names   ={"Sergi Lorenzo", "Juanjo Pol", "Javi Cepa", "Elena Blanes", "Curro Campos", "Alberto Rico", "Alejandro Rico", "David Rico", "Jesús Fernández", "Espe Olea", "Aina Ferriol"};
 	
-	void GenerateJammerName() {
+	void GenerateStaffName() {
 		name=names.GetRandom();
 	}
 	
@@ -24,6 +24,7 @@ public class Staff : MonoBehaviour
 	
 	void Start() {
 		InfoSlotListManager.instanceStaffList.AddStaffSlot(this);
+		GenerateStaffName();
 	}
 
     public void Assign(IStaffAssignation newAssignation)
