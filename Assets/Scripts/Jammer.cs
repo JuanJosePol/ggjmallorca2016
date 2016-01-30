@@ -9,12 +9,20 @@ public class Jammer : MonoBehaviour
     //private GameObject chair;
     [HideInInspector]
     public Table assignedTable { get; private set; }
-
+	
+	static string[] names   ={"Sergi",  "Juanjo", "Justo", "Javi", "Ricardo", "Gabriel", "Pedro", "Yann", "Arnold", "Harry", "Walter", "James", "Luke", "Pepa", "Peter", "Juana", "Lynda", "Robert", "Kylo", "Kate", "Espe", "James", "Judith", "Lucy", "Mary", "Anna", };
+	static string[] surnames={"Lorenzo", "Pol", "Cerdá", "Cepa", "Alarcón", "Muntaner", "Zapata", "Olea", "Pope", "White", "Vader", "Skywalker", "Ren", "Carusa", "Cupcake", "Redford", "Icecream", "Rainbow"};
+	
+	void GenerateJammerName() {
+		name=names.GetRandom()+" "+surnames.GetRandom();
+	}
+	
     void Awake()
     {
         GameManager.instance.jammers.Add(this);
 	    walker = gameObject.AddComponent<Walker>();
 	    walker.isJammer=true;
+	    GenerateJammerName();
     }
 
     public void AssignTable(Table newTable)

@@ -1053,14 +1053,13 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22487610, guid: 124a2cc0a96474c46b1e0b1ad3e73b20, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 22487610, guid: 124a2cc0a96474c46b1e0b1ad3e73b20, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 11423596, guid: 124a2cc0a96474c46b1e0b1ad3e73b20, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 124a2cc0a96474c46b1e0b1ad3e73b20, type: 2}
   m_IsPrefabParent: 0
 --- !u!224 &1808981322 stripped
