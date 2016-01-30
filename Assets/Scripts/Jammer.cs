@@ -5,8 +5,7 @@ public class Jammer : MonoBehaviour
 {
     [HideInInspector]
     public Walker walker;
-
-    //private GameObject chair;
+    
     [HideInInspector]
     public Table assignedTable { get; private set; }
     public bool isWorking
@@ -20,7 +19,10 @@ public class Jammer : MonoBehaviour
 	
 	static string[] names   ={"Sergi",  "Juanjo", "Justo", "Javi", "Ricardo", "Gabriel", "Pedro", "Yann", "Arnold", "Harry", "Walter", "James", "Luke", "Pepa", "Peter", "Juana", "Lynda", "Robert", "Kylo", "Kate", "Espe", "James", "Judith", "Lucy", "Mary", "Anna", };
 	static string[] surnames={"Lorenzo", "Pol", "Cerdá", "Cepa", "Alarcón", "Muntaner", "Zapata", "Olea", "Pope", "White", "Vader", "Skywalker", "Ren", "Carusa", "Cupcake", "Redford", "Icecream", "Rainbow"};
-	
+
+    private TrollStaff trollStaff;
+    private WiFiProblem wifiProblem;
+
 	void GenerateJammerName() {
 		name=names.GetRandom()+" "+surnames.GetRandom();
 	}
@@ -31,6 +33,9 @@ public class Jammer : MonoBehaviour
 	    walker = gameObject.AddComponent<Walker>();
 	    walker.isJammer=true;
 	    GenerateJammerName();
+
+        trollStaff = gameObject.GetComponent<TrollStaff>();
+        wifiProblem = gameObject.GetComponent<WiFiProblem>();
     }
 
     public void AssignTable(Table newTable)
@@ -69,9 +74,15 @@ public class Jammer : MonoBehaviour
     {
         assignedTable.StopWorking(this);
         walker.TurnTo(transform.position - transform.forward);
-        GetComponent<WiFiProblem>().Activate();
+        wifiProblem.activated = true;
     }
-
+    
+    public void TrollStaff()
+    {
+        assignedTable.StopWorking(this);
+        walker.TurnTo(transform.position - transform.forward);
+        trollStaff.activated = true;
+    }
 #if UNITY_EDITOR
     public void GoToBathroom()
     {

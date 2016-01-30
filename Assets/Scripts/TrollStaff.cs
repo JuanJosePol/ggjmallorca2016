@@ -1,17 +1,16 @@
 ﻿using UnityEngine;
-using System;
 using System.Collections;
+using System;
 
-public class WiFiProblem : OnSiteProblem
+public class TrollStaff : OnSiteProblem
 {
-
     public override void OnActivate()
     {
-        Debug.Log("WiFi Problem Activated");
+        Debug.Log("TollStaff Activated");
     }
 
     public override void OnDeactivate()
     {
-        Debug.Log("WiFi Problem Deactivated");
+        Debug.Log("TrollStaff Deactivated");
     }
 }
