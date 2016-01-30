@@ -281,12 +281,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24c96a7304677e74ca57153e3febafc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  troubleFrequency: 0.25
   tables: []
   jammers: []
   staff: []
   bathrooms: []
   games: []
-  space: 0
 --- !u!4 &220986428
 Transform:
   m_ObjectHideFlags: 0
@@ -672,14 +672,6 @@ Prefab:
     - target: {fileID: 408362, guid: 079b1c9a149d29b48aa430d22e544ff5, type: 2}
       propertyPath: m_RootOrder
       value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 112340, guid: 079b1c9a149d29b48aa430d22e544ff5, type: 2}
-      propertyPath: m_Name
-      value: CheckInZone
-      objectReference: {fileID: 0}
-    - target: {fileID: 11497186, guid: 079b1c9a149d29b48aa430d22e544ff5, type: 2}
-      propertyPath: MaxCapacity
-      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 079b1c9a149d29b48aa430d22e544ff5, type: 2}

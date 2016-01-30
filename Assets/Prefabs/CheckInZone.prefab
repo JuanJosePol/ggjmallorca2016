@@ -456,7 +456,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9744d83fa9db6634ba731d39d03ec1b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxCapacity: 10
+  MaxCapacity: 4
   interspace: 1.5
   positions:
   - {fileID: 0}

@@ -9,6 +9,7 @@ public class Jammer : MonoBehaviour
     //private GameObject chair;
     [HideInInspector]
     public Table assignedTable { get; private set; }
+<<<<<<< HEAD
 	
 	static string[] names   ={"Sergi",  "Juanjo", "Justo", "Javi", "Ricardo", "Gabriel", "Pedro", "Yann", "Arnold", "Harry", "Walter", "James", "Luke", "Pepa", "Peter", "Juana", "Lynda", "Robert", "Kylo", "Kate", "Espe", "James", "Judith", "Lucy", "Mary", "Anna", };
 	static string[] surnames={"Lorenzo", "Pol", "Cerdá", "Cepa", "Alarcón", "Muntaner", "Zapata", "Olea", "Pope", "White", "Vader", "Skywalker", "Ren", "Carusa", "Cupcake", "Redford", "Icecream", "Rainbow"};
@@ -17,6 +18,17 @@ public class Jammer : MonoBehaviour
 		name=names.GetRandom()+" "+surnames.GetRandom();
 	}
 	
+=======
+
+    public bool isWorking
+    {
+        get
+        {
+            return assignedTable != null && assignedTable.jammers.Contains(this);
+        }
+    }
+
+>>>>>>> 22d4a2bf805e9ce87cacfd6f1e3f5b867ecf6374
     void Awake()
     {
         GameManager.instance.jammers.Add(this);
