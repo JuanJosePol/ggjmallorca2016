@@ -566,9 +566,10 @@ GameObject:
   - 92: {fileID: 1361171103}
   - 114: {fileID: 1361171102}
   - 114: {fileID: 1361171101}
+  - 114: {fileID: 1361171107}
   m_Layer: 0
   m_Name: MainCamera
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -662,3 +663,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
+--- !u!114 &1361171107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1361171100}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e64cc64279ea4e841a1f8b0167b85eb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PostEffects:
+  - {fileID: 1361171101}
+  IsOrderRequired: 0
+  ShowGuiControls: 0
+  GuiAnchor: 0
+  LinkedSceneView: {fileID: 0}
+  MatchCameraColor: 1
