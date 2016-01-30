@@ -65,6 +65,13 @@ public class Jammer : MonoBehaviour
         }
     }
 
+    public void HaveWiFiProblem()
+    {
+        assignedTable.StopWorking(this);
+        walker.TurnTo(transform.position - transform.forward);
+        GetComponent<WiFiProblem>().Activate();
+    }
+
 #if UNITY_EDITOR
     public void GoToBathroom()
     {

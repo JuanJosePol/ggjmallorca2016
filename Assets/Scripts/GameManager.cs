@@ -61,7 +61,14 @@ public class GameManager : MonoBehaviour
         {
             timeSinceLastProblem = 0;
 
-            GenerateBathroomProblem();
+            if (UnityEngine.Random.value > 0.5f)
+            {
+                GenerateBathroomProblem();
+            }
+            else
+            {
+                GenerateWiFiProblem();
+            }
         }
     }
 
@@ -78,13 +85,19 @@ public class GameManager : MonoBehaviour
         }
         if (!freeBathroom) return;
 
-        Jammer troubledJammer = PickRandomJammer();
+        Jammer troubledJammer = PickRandomWorkingJammer();
         if (troubledJammer != null)
             troubledJammer.FindFreeBathroom();
-
     }
 
-    private Jammer PickRandomJammer()
+    private void GenerateWiFiProblem()
+    {
+        Jammer troubledJammer = PickRandomWorkingJammer();
+        if (troubledJammer != null)
+            troubledJammer.HaveWiFiProblem();
+    }
+
+    private Jammer PickRandomWorkingJammer()
     {
         List<Jammer> workingJammers = new List<Jammer>();
         foreach (var j in this.jammers)
