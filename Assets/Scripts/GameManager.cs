@@ -44,6 +44,10 @@ public class GameManager : MonoBehaviour
             return jammers.Count < space;
         }
     }
+	
+	void Awake() {
+		Application.LoadLevelAdditive(1);
+	}
 
     void Start()
     {
