@@ -5,7 +5,7 @@ public class WaitingQueue : MonoBehaviour
 {
     public int MaxCapacity;
     public float interspace = 1;
-
+    
     [HideInInspector]
     public Transform[] positions;
 
@@ -24,10 +24,10 @@ public class WaitingQueue : MonoBehaviour
         }
     }
 
-    public void AddJammer(Jammer jammer)
+    public void AddJammer(Jammer newJammer)
     {
-        jammers.Add(jammer);
-        jammer.walker.MoveTo(positions[jammers.Count - 1].position);
+        jammers.Add(newJammer);
+        newJammer.walker.MoveTo(positions[jammers.Count - 1].position,() => { newJammer.walker.TurnTo(this.transform.position + this.transform.forward); });
     }
 
     public Jammer GetNextJammer()
