@@ -27,6 +27,8 @@ public class GameManager : MonoBehaviour
     public List<Jammer> jammers = new List<Jammer>();
     [HideInInspector]
     public List<Staff> staff = new List<Staff>();
+    [HideInInspector]
+    public List<Bathroom> bathrooms = new List<Bathroom>();
 
     // Input Selection
     [HideInInspector]

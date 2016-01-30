@@ -74,6 +74,7 @@ GameObject:
   - 4: {fileID: 455714}
   - 114: {fileID: 11426832}
   - 195: {fileID: 19512302}
+  - 136: {fileID: 13682742}
   m_Layer: 0
   m_Name: Jammer
   m_TagString: Untagged
@@ -560,6 +561,19 @@ MonoBehaviour:
   frequency: 10
   amplitude: 0.05
   swing: 1
+--- !u!136 &13682742
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 152434}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!195 &19512302
 NavMeshAgent:
   m_ObjectHideFlags: 1
