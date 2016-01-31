@@ -6,12 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Level1.unity
+    path: Assets/Scenes/GarageLevel.unity
   - enabled: 1
-    path: Assets/Scenes/Level2.unity
+    path: Assets/Scenes/GardenLevel.unity
   - enabled: 1
-    path: Assets/Scenes/Level4.unity
+    path: Assets/Scenes/CompanyLevel.unity
   - enabled: 1
-    path: Assets/Scenes/Level3.unity
+    path: Assets/Scenes/MalagaLevel.unity
   - enabled: 1
     path: Assets/Scenes/UI.unity

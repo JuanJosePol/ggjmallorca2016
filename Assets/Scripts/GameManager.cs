@@ -68,14 +68,59 @@ public class GameManager : MonoBehaviour
 
         crowdAudio = Camera.main.GetComponent<AudioSource>();
 	}
-
+	
+	Texture2D fadeTexture;
+	GameObject fadeObject;
+	
     void Start()
     {
         foreach (var t in tables)
         {
             space += t.chairPosition.Length;
         }
+	    fadeTexture=new Texture2D(1,1);
+	    fadeTexture.SetPixel(0,0,Color.black);
+	    fadeTexture.Apply();
+	    fadeObject=new GameObject();
+	    SpriteRenderer spriteRenderer=fadeObject.AddComponent<SpriteRenderer>();
+	    spriteRenderer.sprite=Sprite.Create(fadeTexture, new Rect(0,0,1,1), Vector2.one*0.5f);
+	    fadeObject.AddComponent<Billboard>();
+	    
+	    
+	    StartCoroutine(FadeIn());
     }
+	
+	
+	float timeRate=0.5f;
+	
+	public IEnumerator FadeIn() {
+		fadeObject.transform.position=Camera.main.transform.position+Camera.main.transform.forward;
+		fadeObject.transform.localScale=Vector3.one*2000;
+		
+		float timer=0;
+		while (timer<1/timeRate)
+		{
+			timer+=Time.deltaTime*timeRate;
+			float alpha=1-timer;
+			fadeTexture.SetPixel(0,0, new Color(0,0,0, alpha));
+			fadeTexture.Apply();
+			yield return null;
+		}
+		
+	}
+	
+	public IEnumerator FadeOut() {
+		float timer=0;
+		while (timer<1/timeRate)
+		{
+			timer+=Time.deltaTime*timeRate;
+			float alpha=timer;
+			fadeTexture.SetPixel(0,0, new Color(0,0,0, alpha));
+			fadeTexture.Apply();
+			yield return null;
+		}
+		
+	}
     
     void Update()
     {
@@ -149,7 +194,9 @@ public class GameManager : MonoBehaviour
             table.AddRange(troubledJammer.assignedTable.jammers);
             foreach (Jammer j in table)
             {
-                j.HaveWiFiProblem();
+	            if (Random.value>0.7f) {
+	            	j.HaveWiFiProblem();
+            	}
             }
         }
     }

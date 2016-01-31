@@ -13,13 +13,17 @@ public class LevelManager : MonoBehaviour {
 	
 	public static LevelManager instance;
 	
+	
 	void Start () {
+		
+		
 		if (instance==null) {
 			instance=this;
 			DontDestroyOnLoad(gameObject);
 		} else {
 			Destroy(gameObject);
 		}
+		
 	}
 	
 	void Update () {
@@ -44,11 +48,24 @@ public class LevelManager : MonoBehaviour {
 	}
 	
 	void LoadNextLevel() {
-		currentLevel++;
+		elapsedLevelTime=0;
+		createdGames=0;
+		StartCoroutine(LoadingNextLevel());
+	}
+	
+	IEnumerator LoadingNextLevel() {
+		StartCoroutine(GameManager.instance.FadeOut());
+		
 		AssetCatalog.instance.PlaySound("levelfinished");
+		
+		yield return new WaitForSeconds(5);
+		
+		currentLevel++;
 		levelDuration*=1.2f;
 		requiredGames+=3;
 		elapsedLevelTime=0;
 		Application.LoadLevel(Application.loadedLevel+1);
+		yield return new WaitForSeconds(0.1f);
 	}
+	
 }
