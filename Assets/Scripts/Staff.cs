@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
@@ -8,6 +9,7 @@ public class Staff : MonoBehaviour
     [HideInInspector]
 	public Walker walker;
 	public float stamina=100;
+	public Slider progressSlider;
 
     [HideInInspector]private IStaffAssignation assignation;
 	[HideInInspector]public StaffRenderer staffRenderer;
@@ -26,9 +28,13 @@ public class Staff : MonoBehaviour
 	
 	void Update() {
 		if (assignation!=null) {
+			progressSlider.gameObject.SetActive(true);
+			progressSlider.value+=Time.deltaTime;
 			stamina-=Time.deltaTime;
 		} else {
 			stamina+=Time.deltaTime;
+			progressSlider.gameObject.SetActive(false);
+			progressSlider.value=0;
 		}
 		stamina=Mathf.Clamp(stamina, 0, 100);
 		if (stamina<=1) {
