@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
     }
 	
 	void Awake() {
-		Application.LoadLevelAdditive(1);
+		Application.LoadLevelAdditive("UI");
 
         if (FindObjectOfType<Bathroom>() != null)
         {
@@ -163,7 +163,7 @@ public class GameManager : MonoBehaviour
 
     public Game CreateNewGame()
     {
-	    Game game = new Game(GenerateGameName(), 300);
+	    Game game = new Game(GenerateGameName(), 150);
         games.Add(game);
         return game;
     }
