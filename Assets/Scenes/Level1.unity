@@ -2612,12 +2612,7 @@ Transform:
   m_LocalRotation: {x: 0.36524346, y: 0.31641042, z: -0.13356608, w: 0.86524093}
   m_LocalPosition: {x: -15.69, y: 26.311718, z: -17.524492}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-<<<<<<< HEAD
-  - {fileID: 1140169805}
-=======
-  - {fileID: 195045196}
->>>>>>> e20b9c2102ca4d35e7c43e04b90cd2c630e7a90e
+  m_Children: {fileID: 1140169805}
   m_Father: {fileID: 801397671}
   m_RootOrder: 0
 --- !u!82 &1361171107
