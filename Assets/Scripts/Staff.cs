@@ -51,7 +51,7 @@ public class Staff : MonoBehaviour
 		}
 		stamina=Mathf.Clamp(stamina, 0, 100);
 
-        if (stamina < 80 && assignation != null && !(assignation is Dorm))
+        if (stamina < 20 && assignation != null && !(assignation is Dorm))
         {
             GoToSleep();
         }
