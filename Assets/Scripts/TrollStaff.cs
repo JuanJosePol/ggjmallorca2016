@@ -6,11 +6,11 @@ public class TrollStaff : OnSiteProblem
 {
     public override void OnActivate()
     {
-        Debug.Log("TollStaff Activated");
+        jammer.LoadDialog(DialogType.Troll);
     }
 
     public override void OnDeactivate()
     {
-        Debug.Log("TrollStaff Deactivated");
+        jammer.HideDialog();
     }
 }

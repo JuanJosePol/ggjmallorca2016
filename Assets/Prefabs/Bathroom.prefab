@@ -1,5 +1,22 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &100580
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 471150}
+  - 33: {fileID: 3347762}
+  - 23: {fileID: 2311356}
+  m_Layer: 0
+  m_Name: default
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &116308
 GameObject:
   m_ObjectHideFlags: 0
@@ -49,6 +66,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
   m_IsActive: 0
+--- !u!1 &136148
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 442006}
+  m_Layer: 0
+  m_Name: EnterPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &142280
 GameObject:
   m_ObjectHideFlags: 0
@@ -60,7 +92,8 @@ GameObject:
   - 114: {fileID: 11406060}
   - 65: {fileID: 6572516}
   - 54: {fileID: 5470558}
-  m_Layer: 0
+  - 114: {fileID: 11435606}
+  m_Layer: 8
   m_Name: Bathroom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -79,6 +112,21 @@ GameObject:
   - 23: {fileID: 2359468}
   m_Layer: 0
   m_Name: WC
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &166946
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 487350}
+  m_Layer: 0
+  m_Name: water
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -111,7 +159,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 486118}
   m_Layer: 0
-  m_Name: EnterPosition
+  m_Name: StaffPosition
   m_TagString: Untagged
   m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -142,6 +190,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 413920}
   m_RootOrder: 0
+--- !u!4 &442006
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 136148}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.3, y: 0, z: -0.44}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 447770}
+  m_RootOrder: 3
 --- !u!4 &447770
 Transform:
   m_ObjectHideFlags: 1
@@ -149,14 +209,16 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 142280}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.36, y: 0, z: 2.49}
+  m_LocalPosition: {x: 3.514297, y: 3.0117188, z: 2.8855078}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 413920}
   - {fileID: 488142}
   - {fileID: 473796}
+  - {fileID: 442006}
   - {fileID: 486118}
   - {fileID: 448650}
+  - {fileID: 487350}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &448650
@@ -170,7 +232,19 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 447770}
-  m_RootOrder: 4
+  m_RootOrder: 5
+--- !u!4 &471150
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100580}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 487350}
+  m_RootOrder: 0
 --- !u!4 &473796
 Transform:
   m_ObjectHideFlags: 1
@@ -190,11 +264,24 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 192880}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.44}
+  m_LocalPosition: {x: -0.48, y: 0, z: -0.62}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 447770}
-  m_RootOrder: 3
+  m_RootOrder: 4
+--- !u!4 &487350
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 166946}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: -0.00000016292068}
+  m_LocalPosition: {x: -0.34, y: 0, z: 0.33}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 471150}
+  m_Father: {fileID: 447770}
+  m_RootOrder: 6
 --- !u!4 &488142
 Transform:
   m_ObjectHideFlags: 1
@@ -225,6 +312,32 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+--- !u!23 &2311356
+MeshRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100580}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 8268f19ac49d89f458bc5424e9710ffc, type: 2}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 1
+  m_ReflectionProbeUsage: 1
+  m_ProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_MinimumChartSize: 4
@@ -299,6 +412,13 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 152168}
   m_Mesh: {fileID: 4300000, guid: c6b045263dbde784190c1a73790ccddd, type: 3}
+--- !u!33 &3347762
+MeshFilter:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100580}
+  m_Mesh: {fileID: 4300000, guid: 9808c86cdafa4bf47a4e4d0d0b6bbb9c, type: 3}
 --- !u!33 &3397262
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -392,14 +512,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82880880bd098af449d791051ded943b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  breakChance: 0.25
   poopTime: 5
-  enterPosition: {fileID: 486118}
+  repairTime: 4
+  enterPosition: {fileID: 442006}
   poopPosition: {fileID: 448650}
   waitingQueue: {fileID: 11404034}
   WCMeshFilter: {fileID: 3340944}
   ClosedWC: {fileID: 3300000, guid: c6b045263dbde784190c1a73790ccddd, type: 3}
   OpenWC: {fileID: 3300000, guid: 36081da10dddd13448c0cabb6bdde3e1, type: 3}
+  puddle: {fileID: 2311356}
   jammer: {fileID: 0}
+  assignedStaff: {fileID: 0}
+  staffPosition: {fileID: 486118}
+--- !u!114 &11435606
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 142280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11406060}
+          m_MethodName: OnClick
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

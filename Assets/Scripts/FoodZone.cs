@@ -83,7 +83,7 @@ public class FoodZone : MonoBehaviour, IStaffAssignation
         }
         else
         {
-            throw new System.Exception("No more pizza!!!!");
+            jammer.LoadDialog(DialogType.Food);
         }
     }
 
@@ -134,9 +134,11 @@ public class FoodZone : MonoBehaviour, IStaffAssignation
 
     public void OnClick()
     {
-        Staff staff = FindObjectOfType<Staff>();
-
-        this.AssignStaff(staff);
+        if (GameManager.instance.selectedStaff != null)
+        {
+            this.AssignStaff(GameManager.instance.selectedStaff);
+            GameManager.instance.DeselectStaff();
+        }
     }
 
     #endregion
@@ -156,9 +158,11 @@ public class FoodZone : MonoBehaviour, IStaffAssignation
     }
 
     private void RestockFood()
-    {
+    { 
+        bool needHelp = foodRations == 0;
         foodRations = MaxFoodRations;
         assignedStaff.Unassign();
-        Process();
+        if (jammer != null && needHelp)
+            Process();
     }
 }

@@ -7,4 +7,5 @@ public interface IStaffAssignation
     void UnassignStaff();
     void Process();
     void OnStaffReady();
+    void OnClick();
 }
