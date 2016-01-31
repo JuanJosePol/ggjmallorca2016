@@ -155,6 +155,7 @@ public class Bathroom : MonoBehaviour, IStaffAssignation
         float timeElapsed = 0;
         while (timeElapsed < repairTime)
         {
+            timeElapsed += Time.deltaTime;
             assignedStaff.assignmentProgress = timeElapsed / repairTime;
             yield return null;
         }
