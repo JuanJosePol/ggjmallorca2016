@@ -17,6 +17,8 @@ public class NavMeshNavigator : MonoBehaviour
             {
                 if (hitInfo.collider.gameObject.layer != LayerMask.NameToLayer("Clickable"))
                 {
+                	
+	                AssetCatalog.instance.PlaySound("order");
                     NavMeshHit navHit;
                     if (NavMesh.SamplePosition(hitInfo.point, out navHit, 0.1f, NavMesh.AllAreas))
                     {

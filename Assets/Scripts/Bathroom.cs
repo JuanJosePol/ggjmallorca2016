@@ -87,7 +87,9 @@ public class Bathroom : MonoBehaviour, IStaffAssignation
     }
 
     public void ExitBathroom()
-    {
+	{
+		
+		AssetCatalog.instance.PlaySound("wc");
         if (UnityEngine.Random.value < breakChance)
             this.isBroken = true;
 

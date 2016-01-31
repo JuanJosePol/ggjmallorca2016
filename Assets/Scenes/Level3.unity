@@ -1798,9 +1798,9 @@ GameObject:
   - 20: {fileID: 1361171105}
   - 114: {fileID: 1361171103}
   - 114: {fileID: 1361171102}
-  - 114: {fileID: 1361171101}
   - 114: {fileID: 1361171104}
   - 114: {fileID: 1361171107}
+  - 81: {fileID: 1361171101}
   m_Layer: 0
   m_Name: MainCamera
   m_TagString: MainCamera
@@ -1808,22 +1808,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1361171101
-MonoBehaviour:
+--- !u!81 &1361171101
+AudioListener:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1361171100}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1222701696bce8f41a07d077b281118e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LookupTexture: {fileID: 2800000, guid: 6d8afa97defbd3c4da531126311f040a, type: 3}
-  Amount: 0.68
-  ForceCompatibility: 0
-  Shader2D: {fileID: 4800000, guid: b5b3d4fe7139a7141be9b1475ea1127f, type: 3}
-  Shader3D: {fileID: 4800000, guid: c356d31be0868c94d8c3eb943516cb8a, type: 3}
+  m_Enabled: 1
 --- !u!114 &1361171102
 MonoBehaviour:
   m_ObjectHideFlags: 0

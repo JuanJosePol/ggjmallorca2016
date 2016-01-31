@@ -9,6 +9,7 @@ public class InfoSlotController : MonoBehaviour {
 	Text   label;
 	RawImage image;
 	Text   sliderLabel;
+	Image background;
 	
 	public Game  gameInfo;
 	public Staff staffInfo;
@@ -19,6 +20,7 @@ public class InfoSlotController : MonoBehaviour {
 		slider=GetComponentInChildren<Slider>();
 		label=transform.FindChild("Text").GetComponent<Text>();
 		image=GetComponentInChildren<RawImage>();
+		background=GetComponentInChildren<Image>();
 		sliderLabel=slider.GetComponentInChildren<Text>();
 		transform.localScale=Vector3.zero;
 		transform.DOScale(Vector3.one, 1f).SetEase(Ease.OutElastic);
@@ -47,6 +49,11 @@ public class InfoSlotController : MonoBehaviour {
 			label.text=staffInfo.name;
 			sliderLabel.text=""+Mathf.RoundToInt(staffInfo.stamina);
 			image.texture=staffInfo.staffRenderer.cameraTexture;
+			if (!staffInfo.canBeSelected) {
+				background.color=Color.red;
+			} else {
+				background.color=Color.white;
+			}
 		}
 	}
 }

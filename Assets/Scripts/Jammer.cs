@@ -102,14 +102,20 @@ public class Jammer : MonoBehaviour
     {
         assignedTable.StopWorking(this);
         walker.TurnTo(transform.position - transform.forward);
-        wifiProblem.activated = true;
+	    wifiProblem.activated = true;
+	    if (Random.value>0.5f) {
+		    AssetCatalog.instance.PlaySound("help");
+	    } else {
+		    AssetCatalog.instance.PlaySound("wifi");
+	    }
     }
     
     public void TrollStaff()
     {
         assignedTable.StopWorking(this);
         walker.TurnTo(transform.position - transform.forward);
-        trollStaff.activated = true;
+	    trollStaff.activated = true;
+	    AssetCatalog.instance.PlaySound("troll");
     }
 #if UNITY_EDITOR
     public void GoToBathroom()

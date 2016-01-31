@@ -42,6 +42,7 @@ public class LevelManager : MonoBehaviour {
 	}
 	
 	void LoadNextLevel() {
+		AssetCatalog.instance.PlaySound("levelfinished");
 		levelDuration*=1.2f;
 		requiredGames+=3;
 		elapsedLevelTime=0;

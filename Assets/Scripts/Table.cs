@@ -33,8 +33,10 @@ public class Table : MonoBehaviour
 
         currentGame.Develop(jammers.Count);
 
-        if (currentGame.progress >= 1)
-            currentGame = null;
+	    if (currentGame.progress >= 1) {
+		    currentGame = null;
+		    AssetCatalog.instance.PlaySound("gamedone");
+	    }
     }
 
     public void AddJammer(Jammer newJammer)

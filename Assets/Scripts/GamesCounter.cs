@@ -11,6 +11,6 @@ public class GamesCounter : MonoBehaviour {
 	}
 	
 	void Update () {
-		text.text="Games: "+LevelManager.instance.createdGames;
+		text.text="Games: "+LevelManager.instance.createdGames+"/"+LevelManager.instance.requiredGames;
 	}
 }
