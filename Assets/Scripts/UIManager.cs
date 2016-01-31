@@ -1,11 +1,17 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class UIManager : MonoBehaviour {
 	
+	public Text notificationText;
+	
 	CanvasGroup group;
 	
+	public static UIManager instance;
+	
 	void Start () {
+		instance=this;
 		group=FindObjectOfType<CanvasGroup>();
 		group.alpha=0;
 	}

@@ -33,7 +33,7 @@ public class FoodZone : MonoBehaviour, IStaffAssignation
     void Awake()
     {
         GameManager.instance.foodZones.Add(this);
-        foodRations = MaxFoodRations;
+	    foodRations = MaxFoodRations / 3;
     }
 
     private void UpdatePizzas()

@@ -32,7 +32,8 @@ public class LevelManager : MonoBehaviour {
 			if (createdGames>=requiredGames) {
 				LoadNextLevel();
 			} else {
-				ReloadLevel();
+				UIManager.instance.notificationText.text="You suck...\nTry again!";
+				Invoke("ReloadLevel", 3);
 			}
 		}
 		
@@ -45,6 +46,7 @@ public class LevelManager : MonoBehaviour {
 		Application.LoadLevel(Application.loadedLevel);
 		elapsedLevelTime=0;
 		createdGames=0;
+		UIManager.instance.notificationText.text="";
 	}
 	
 	void LoadNextLevel() {
@@ -54,11 +56,14 @@ public class LevelManager : MonoBehaviour {
 	}
 	
 	IEnumerator LoadingNextLevel() {
+		UIManager.instance.notificationText.text="A winner is you!";
+		
 		StartCoroutine(GameManager.instance.FadeOut());
 		
 		AssetCatalog.instance.PlaySound("levelfinished");
 		
 		yield return new WaitForSeconds(5);
+		UIManager.instance.notificationText.text="";
 		
 		currentLevel++;
 		levelDuration*=1.2f;
