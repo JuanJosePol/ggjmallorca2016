@@ -27,7 +27,15 @@ public class Staff : MonoBehaviour
 	}
 	
 	void Update() {
-        // Unassing if the staff is too tired
+		if (assignation!=null) {
+			progressSlider.gameObject.SetActive(true);
+			progressSlider.value+=assignmentProgress;
+			stamina-=Time.deltaTime;
+		} else {
+			stamina+=Time.deltaTime;
+			progressSlider.gameObject.SetActive(false);
+			progressSlider.value=0;
+		}
 		stamina=Mathf.Clamp(stamina, 0, 100);
 		if (stamina<=1) {
 			Unassign();
