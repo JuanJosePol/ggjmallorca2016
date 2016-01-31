@@ -8,10 +8,9 @@ public class Staff : MonoBehaviour
 	public Walker walker;
 	public float stamina=100;
 
-    [HideInInspector]
-    private IStaffAssignation assignation;
-	
-	public StaffRenderer staffRenderer;
+    [HideInInspector]private IStaffAssignation assignation;
+	[HideInInspector]public StaffRenderer staffRenderer;
+	GameObject selectionArrow;
 	
 	static string[] nameArray = {"Sergi Lorenzo", "Juanjo Pol", "Javi Cepa", "Elena Blanes", "Curro Campos", "Alberto Rico", "Alejandro Rico", "David Rico", "Jesús Fernández", "Espe Olea", "Aina Ferriol"};
 	static List<string> remainingNames;
@@ -28,7 +27,17 @@ public class Staff : MonoBehaviour
 	    remainingNames=new List<string>(nameArray);
 	    walker = gameObject.AddComponent<Walker>();
 	    staffRenderer=GetComponentInChildren<StaffRenderer>();
+	    selectionArrow=GetComponentInChildren<Bounce>().gameObject;
+	    selectionArrow.SetActive(false);
     }
+	
+	public void Select() {
+		selectionArrow.SetActive(true);
+	}
+	
+	public void Deselect() {
+		selectionArrow.SetActive(false);
+	}
 	
 	void Start() {
 		InfoSlotListManager.instanceStaffList.AddStaffSlot(this);
