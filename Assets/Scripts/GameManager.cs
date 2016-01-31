@@ -190,6 +190,9 @@ public class GameManager : MonoBehaviour
 
     public void SelectStaff(Staff staff)
     {
+        if (selectedStaff != null && !selectedStaff.canBeSelected)
+            return;
+
         if (selectedStaff != null)
             selectedStaff.Deselect();
 

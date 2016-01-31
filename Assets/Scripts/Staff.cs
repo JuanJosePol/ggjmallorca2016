@@ -15,7 +15,9 @@ public class Staff : MonoBehaviour
 	
 	static string[] nameArray = {"Sergi Lorenzo", "Juanjo Pol", "Javi Cepa", "Elena Blanes", "Curro Campos", "Alberto Rico", "Alejandro Rico", "David Rico", "Jesús Fernández", "Espe Olea", "Aina Ferriol"};
 	static List<string> remainingNames;
-	
+    public bool canBeSelected = true;
+    public float assignmentProgress { get; set; }
+
 	void GenerateStaffName() {
 		int selection=Random.Range(0,remainingNames.Count);
 		name=remainingNames[selection];
