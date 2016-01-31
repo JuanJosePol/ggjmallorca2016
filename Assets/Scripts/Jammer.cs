@@ -42,6 +42,11 @@ public class Jammer : MonoBehaviour
 		GetComponentInChildren<JammerDialog>().LoadDialog(dialogType);
 	}
 
+    public void HideDialog()
+    {
+        GetComponentInChildren<JammerDialog>().HideDialog();
+    }
+
     public void AssignTable(Table newTable)
     {
         assignedTable = newTable;

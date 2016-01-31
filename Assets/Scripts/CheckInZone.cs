@@ -63,6 +63,7 @@ public class CheckInZone : MonoBehaviour, IStaffAssignation
     public void OnJammerReady()
     {
         jammer.walker.TurnTo(staffPosition.position);
+        jammer.LoadDialog(DialogType.Ticket);
         jammerReady = true;
         if (staffReady) Process();
 
@@ -77,6 +78,7 @@ public class CheckInZone : MonoBehaviour, IStaffAssignation
     {
         yield return new WaitForSeconds(CheckInTime);
         jammerReady = false;
+        jammer.HideDialog();
         jammer.FindFreeTable();
         jammer = null;
         if (!waitingQueue.isEmpty)

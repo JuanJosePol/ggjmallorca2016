@@ -37,9 +37,10 @@ public static class CatalogExtensions {
 		return array[Random.Range(0, array.Length)];
 	}
 	
-	public static T GetByName<T>(this T[] array, string name) {
+	public static T GetByName<T>(this T[] array, string name) where T : UnityEngine.Object
+    {
 		for (int i = 0; i < array.Length; i++) {
-			if (array[i].ToString()==name) {
+			if (array[i].name.Equals(name)) {
 				return array[i];
 			}
 		}

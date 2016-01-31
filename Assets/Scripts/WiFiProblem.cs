@@ -7,11 +7,11 @@ public class WiFiProblem : OnSiteProblem
 
     public override void OnActivate()
     {
-        Debug.Log("WiFi Problem Activated");
+        jammer.LoadDialog(DialogType.Wifi);
     }
 
     public override void OnDeactivate()
     {
-        Debug.Log("WiFi Problem Deactivated");
+        jammer.HideDialog();
     }
 }
