@@ -39,8 +39,6 @@ public class GameManager : MonoBehaviour
     private int space = 0;
     private float timeSinceLastProblem = 0;
     private int problemTypeCount = 2; // WiFi and Troll are always possible;
-    private bool hasBathRoom = false;
-    private bool hasFoodZone = false;
 
     public bool hasRoomForJammers
     {
@@ -55,13 +53,11 @@ public class GameManager : MonoBehaviour
 
         if (FindObjectOfType<Bathroom>() != null)
         {
-            hasBathRoom = true;
             problemTypeCount += 1;
         }
 
         if (FindObjectOfType<FoodZone>() != null)
         {
-            hasFoodZone = true;
             problemTypeCount += 1;
         }
 
