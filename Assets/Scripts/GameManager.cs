@@ -32,10 +32,15 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public List<Bathroom> bathrooms = new List<Bathroom>();
     [HideInInspector]
+    public List<FoodZone> foodZones = new List<FoodZone>();
+    [HideInInspector]
     public List<Game> games = new List<Game>();
 
     private int space = 0;
     private float timeSinceLastProblem = 0;
+    private int problemTypeCount = 2; // WiFi and Troll are always possible;
+    private bool hasBathRoom = false;
+    private bool hasFoodZone = false;
 
     public bool hasRoomForJammers
     {
@@ -47,6 +52,19 @@ public class GameManager : MonoBehaviour
 	
 	void Awake() {
 		Application.LoadLevelAdditive(1);
+
+        if (FindObjectOfType<Bathroom>() != null)
+        {
+            hasBathRoom = true;
+            problemTypeCount += 1;
+        }
+
+        if (FindObjectOfType<FoodZone>() != null)
+        {
+            hasFoodZone = true;
+            problemTypeCount += 1;
+        }
+
 	}
 
     void Start()
@@ -65,13 +83,15 @@ public class GameManager : MonoBehaviour
         {
             timeSinceLastProblem = 0;
 
-            float problemType = UnityEngine.Random.value;
-            if (problemType < 0.3f)
-                GenerateBathroomProblem();
-            else if(problemType < 0.6f)
-                GenerateTrollStaff();
-            else
+            float problemType = UnityEngine.Random.Range(0, problemTypeCount);
+            if (problemType == 0)
                 GenerateWiFiProblem();
+            else if (problemType == 1)
+                GenerateTrollStaff();
+            else if (problemType == 2)
+                GenerateBathroomProblem();
+            else if (problemType == 3)
+                GenerateFoodProblem();
         }
     }
 
@@ -105,6 +125,13 @@ public class GameManager : MonoBehaviour
         Jammer troubledJammer = PickRandomWorkingJammer();
         if (troubledJammer != null)
             troubledJammer.TrollStaff();
+    }
+
+    private void GenerateFoodProblem()
+    {
+        Jammer troubledJammer = PickRandomWorkingJammer();
+        if (troubledJammer != null)
+            troubledJammer.GoGetFood();
     }
 
     private Jammer PickRandomWorkingJammer()
