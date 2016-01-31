@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿#pragma warning disable 0618
+using UnityEngine;
 using System.Collections;
 
 public class LevelManager : MonoBehaviour {
@@ -17,8 +18,10 @@ public class LevelManager : MonoBehaviour {
 	
 	void Update () {
 		elapsedLevelTime+=Time.deltaTime;
-		if (elapsedLevelTime>levelDuration) {
+		if (elapsedLevelTime>levelDuration && createdGames>requiredGames) {
 			LoadNextLevel();
+		} else {
+			Application.LoadLevel(Application.loadedLevel);
 		}
 	}
 	
