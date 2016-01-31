@@ -108,12 +108,16 @@ public class GameManager : MonoBehaviour
 
         if (crowdAudio != null)
         {
-            float t;
-            if (crowdAudio.clip.name == "small_crowd")
+            float t = 0; ;
+            if (Application.loadedLevel == 0)
                 t = Mathf.Max(0, (jammers.Count - 4) / (float)space);
-            else
+            if (Application.loadedLevel == 1)
                 t = Mathf.Max(0, (jammers.Count - 10) / 40f);
-
+            if (Application.loadedLevel == 2)
+                t = Mathf.Max(0, (jammers.Count - 5) / 40f);
+            if (Application.loadedLevel == 3)
+                t = Mathf.Max(0, (jammers.Count - 5) / 40f);
+            
             crowdAudio.volume = Mathf.Lerp(0, 1, t);
         }       
     }
