@@ -14,6 +14,7 @@ public class AssetCatalog : MonoBehaviour {
 	
 	public Texture2D[] gameCovers;
 	public Sprite[] dialogs;
+	public AudioClip[] sounds;
 	
 	void Awake() {
 		instance=this;
@@ -24,11 +25,9 @@ public class AssetCatalog : MonoBehaviour {
 		heads	= Resources.LoadAll<Mesh>("VoxelModels/Heads");
 		gameCovers=Resources.LoadAll<Texture2D>("GameCovers");
 		dialogs=Resources.LoadAll<Sprite>("Dialogs");
+		sounds=Resources.LoadAll<AudioClip>("Sounds");
 	}
 	
-	void Update () {
-	
-	}
 }
 
 public static class CatalogExtensions {
