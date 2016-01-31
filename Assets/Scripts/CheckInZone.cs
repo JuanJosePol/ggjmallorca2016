@@ -38,7 +38,8 @@ public class CheckInZone : MonoBehaviour, IStaffAssignation
 
     public void AssignStaff(Staff newStaff)
     {
-        if (this.assignedStaff != null) throw new System.Exception("There is staff in this zone already");
+        if (this.assignedStaff != null)
+            return;
 
         newStaff.Assign(this);
         assignedStaff = newStaff;

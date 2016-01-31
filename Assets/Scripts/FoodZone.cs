@@ -1,16 +1,54 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using System;
 
-public class FoodZone : MonoBehaviour
+public class FoodZone : MonoBehaviour, IStaffAssignation
 {
+    private int MaxFoodRations = 7;
     public float eatTime = 3;
+    public float phoneCallTime = 3;
+    public float buyFoodTime = 3;
     public Transform eatingPosition;
+    public Transform restockFoodPosition;
     public WaitingQueue waitingQueue;
-    public MeshFilter pizzas;
-    public MeshFilter[] foodAnimation;
+    public List<MeshFilter> pizzasOnTable;
+    public List<MeshFilter> pizza1Frames;
+    public List<MeshFilter> pizza2Frames;
 
     [HideInInspector]
     public Jammer jammer;
+
+    private int _foodRations;
+    public int foodRations
+    {
+        get { return _foodRations; }
+        set
+        {
+            _foodRations = value;
+            UpdatePizzas();
+        }
+    }
+
+    void Awake()
+    {
+        GameManager.instance.foodZones.Add(this);
+        foodRations = MaxFoodRations;
+    }
+
+    private void UpdatePizzas()
+    {
+        if (foodRations >= 4)
+        {
+            pizzasOnTable[0].mesh = pizza1Frames[4].sharedMesh;
+            pizzasOnTable[1].mesh = pizza2Frames[foodRations - 4].sharedMesh;
+        }
+        else
+        {
+            pizzasOnTable[0].mesh = pizza1Frames[foodRations].sharedMesh;
+            pizzasOnTable[1].mesh = pizza2Frames[0].sharedMesh;
+        }
+    }
 
     public bool CanEnterJammer()
     {
@@ -39,6 +77,88 @@ public class FoodZone : MonoBehaviour
 
     public void Process()
     {
+        if (foodRations > 0)
+        {
+            StartCoroutine(EatCoroutine());
+        }
+        else
+        {
+            throw new System.Exception("No more pizza!!!!");
+        }
+    }
 
+    IEnumerator EatCoroutine()
+    {
+        yield return new WaitForSeconds(eatTime);
+        foodRations -= 1;
+        jammer.assignedTable.AddJammer(jammer);
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.GetComponent<Jammer>() == jammer)
+        {
+            jammer = null;
+            if (!waitingQueue.isEmpty)
+                AddJammer(waitingQueue.GetNextJammer());
+        }
+    }
+
+    #region IStaffAssignation Implementation
+
+    [HideInInspector]
+    public Staff assignedStaff;
+    public Transform staffPosition;
+
+    public void AssignStaff(Staff newStaff)
+    {
+        if (this.assignedStaff != null)
+            return;
+
+        newStaff.Assign(this);
+        assignedStaff = newStaff;
+        assignedStaff.walker.MoveTo(staffPosition.position, false, OnStaffReady);
+    }
+
+    public void UnassignStaff()
+    {
+        StopAllCoroutines();
+        assignedStaff = null;
+    }
+
+    public void OnStaffReady()
+    {
+        assignedStaff.walker.TurnTo(staffPosition.position + staffPosition.forward);
+        StartCoroutine(MakePhoneCall());
+    }
+
+    public void OnClick()
+    {
+        Staff staff = FindObjectOfType<Staff>();
+
+        this.AssignStaff(staff);
+    }
+
+    #endregion
+
+    IEnumerator MakePhoneCall()
+    {
+        yield return new WaitForSeconds(phoneCallTime);
+
+        assignedStaff.walker.MoveTo(FindObjectOfType<JammerGenerator>().transform.position, false, () => { StartCoroutine(GoBuyFood()); });
+    }
+
+    IEnumerator GoBuyFood()
+    {
+        yield return new WaitForSeconds(buyFoodTime);
+
+        assignedStaff.walker.MoveTo(restockFoodPosition.position, false, RestockFood);
+    }
+
+    private void RestockFood()
+    {
+        foodRations = MaxFoodRations;
+        assignedStaff.Unassign();
+        Process();
     }
 }

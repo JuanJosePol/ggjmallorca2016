@@ -70,6 +70,19 @@ public class Jammer : MonoBehaviour
         }
     }
 
+    public void GoGetFood()
+    {
+        Debug.LogWarning("Debug Function called: Jammer.GoGetFood");
+        foreach (var f in GameManager.instance.foodZones)
+        {
+            if (f.CanEnterJammer())
+            {
+                f.AddJammer(this);
+                this.assignedTable.StopWorking(this);
+            }
+        }
+    }
+
     public void HaveWiFiProblem()
     {
         assignedTable.StopWorking(this);
