@@ -168,4 +168,23 @@ public class GameManager : MonoBehaviour
 		}
 		return name;
 	}
+
+    public Staff selectedStaff { get; private set; }
+
+    public void SelectStaff(Staff staff)
+    {
+        if (selectedStaff != null)
+            selectedStaff.Deselect();
+
+        selectedStaff = staff;
+        selectedStaff.Select();
+    }
+
+    public void DeselectStaff()
+    {
+        if (selectedStaff != null)
+            selectedStaff.Deselect();
+
+        selectedStaff = null;
+    }
 }

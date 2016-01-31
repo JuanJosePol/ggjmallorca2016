@@ -9,7 +9,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 489746}
   - 33: {fileID: 3316142}
-  - 65: {fileID: 6591856}
   - 23: {fileID: 2381338}
   - 114: {fileID: 11426658}
   m_Layer: 5
@@ -29,7 +28,9 @@ GameObject:
   - 4: {fileID: 435568}
   - 195: {fileID: 19532540}
   - 114: {fileID: 11452890}
-  m_Layer: 0
+  - 136: {fileID: 13653296}
+  - 114: {fileID: 11414508}
+  m_Layer: 8
   m_Name: Staff
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -643,18 +644,36 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 176210}
   m_Mesh: {fileID: 4300000, guid: 03c4cdebc812c6d4baba046032da6ecc, type: 3}
---- !u!65 &6591856
-BoxCollider:
+--- !u!114 &11414508
+MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 109616}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_GameObject: {fileID: 145258}
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11452890}
+          m_MethodName: OnClick
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!114 &11426658
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -726,6 +745,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraTexture: {fileID: 0}
+--- !u!136 &13653296
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 145258}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.75
+  m_Height: 2.5
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!195 &19532540
 NavMeshAgent:
   m_ObjectHideFlags: 1

@@ -36,8 +36,11 @@ public abstract class OnSiteProblem : MonoBehaviour, IStaffAssignation
     {
         if (!activated) return;
 
-        Staff staff = FindObjectOfType<Staff>();
-        this.AssignStaff(staff);
+        if (GameManager.instance.selectedStaff != null)
+        {
+            this.AssignStaff(GameManager.instance.selectedStaff);
+            GameManager.instance.DeselectStaff();
+        }
     }
 
     #region IStaffAssignation Implementation

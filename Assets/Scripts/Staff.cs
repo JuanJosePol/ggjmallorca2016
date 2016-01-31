@@ -58,4 +58,9 @@ public class Staff : MonoBehaviour
             assignation = null;
         }
     }
+
+    public void OnClick()
+    {
+        GameManager.instance.SelectStaff(this);
+    }
 }

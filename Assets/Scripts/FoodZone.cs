@@ -134,9 +134,11 @@ public class FoodZone : MonoBehaviour, IStaffAssignation
 
     public void OnClick()
     {
-        Staff staff = FindObjectOfType<Staff>();
-
-        this.AssignStaff(staff);
+        if (GameManager.instance.selectedStaff != null)
+        {
+            this.AssignStaff(GameManager.instance.selectedStaff);
+            GameManager.instance.DeselectStaff();
+        }
     }
 
     #endregion
