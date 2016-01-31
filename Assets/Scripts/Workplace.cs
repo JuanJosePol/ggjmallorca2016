@@ -15,10 +15,7 @@ public class Workplace : MonoBehaviour {
 	
 	bool claimed=false;
 	
-	Vector3 startScale;
-	
 	void Start () {
-		startScale=transform.localScale;
 		PickJammerType();
 		PickActiveObject();
 	}

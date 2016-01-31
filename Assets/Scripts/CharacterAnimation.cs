@@ -29,14 +29,16 @@ public class CharacterAnimation : MonoBehaviour
         //    float y = transform.position.y;
         //    y += Mathf.Abs(Mathf.Sin(Time.time));
 
-        Vector3 pos = transform.position;
-		pos.y = Mathf.Abs(Mathf.Sin(Time.time * frequency+phase)) * navAgent.velocity.magnitude * amplitude;
+		Vector3 pos = transform.position;
+		Vector2 flatVelocity=new Vector2(navAgent.velocity.x, navAgent.velocity.z);
+		
+		pos.y = Mathf.Abs(Mathf.Sin(Time.time * frequency+phase)) * flatVelocity.magnitude * amplitude;
 		transform.position = pos;
 		float tilt=0;
-		if (navAgent.velocity.magnitude<0.01f) {
+		if (flatVelocity.magnitude<0.01f) {
 			tilt=0;
 		} else {
-			tilt=(Mathf.Sin(Time.time * frequency+phase)) * navAgent.velocity.magnitude * swing;
+			tilt=(Mathf.Sin(Time.time * frequency+phase)) * flatVelocity.magnitude * swing;
 		}
 		transform.localRotation=Quaternion.Euler(transform.localEulerAngles.x, transform.localEulerAngles.y, tilt);
 

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 
 public class Staff : MonoBehaviour
 {
@@ -59,8 +60,9 @@ public class Staff : MonoBehaviour
     public void Assign(IStaffAssignation newAssignation)
     {
 	    if (stamina>20) {
-	    	if (assignation != null) assignation.UnassignStaff();
+	    	if (assignation != null) {assignation.UnassignStaff();}
 		    assignation = newAssignation;
+		    transform.DOPunchPosition(Vector3.up*0.5f, 0.5f, 0, 1).SetEase(Ease.OutBounce);
 	    } else {
 	    	//Try to sleep
 	    }

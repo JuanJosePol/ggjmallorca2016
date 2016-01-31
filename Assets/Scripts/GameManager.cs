@@ -153,7 +153,7 @@ public class GameManager : MonoBehaviour
 
     public Game CreateNewGame()
     {
-	    Game game = new Game(GenerateGameName(), Random.Range(50,100));
+	    Game game = new Game(GenerateGameName(), 300);
         games.Add(game);
         return game;
     }

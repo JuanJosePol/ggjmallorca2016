@@ -512,9 +512,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82880880bd098af449d791051ded943b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  breakChance: 0.25
+  breakChance: 0.1
   poopTime: 5
-  repairTime: 4
+  repairTime: 5
   enterPosition: {fileID: 442006}
   poopPosition: {fileID: 448650}
   waitingQueue: {fileID: 11404034}
@@ -561,7 +561,19 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: breakChance
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: repairTime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: poopTime
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 142280}

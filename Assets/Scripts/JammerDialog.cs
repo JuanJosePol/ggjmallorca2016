@@ -5,13 +5,11 @@ using DG.Tweening;
 public class JammerDialog : MonoBehaviour {
 	
 	SpriteRenderer spriteRenderer;
-	Billboard billboard;
 	
 	Vector3 startScale;
 	
 	void Awake () {
 		spriteRenderer = GetComponent<SpriteRenderer>();
-		billboard=GetComponent<Billboard>();
 		spriteRenderer.sprite = null;
 		startScale=transform.localScale;
 	}
