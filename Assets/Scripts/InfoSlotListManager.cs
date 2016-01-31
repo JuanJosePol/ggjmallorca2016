@@ -20,6 +20,9 @@ public class InfoSlotListManager : MonoBehaviour {
 		if (slotListType==SlotListType.Staff) {
 			instanceStaffList=this;
 		}
+		foreach (Transform child in transform) {
+			Destroy(child.gameObject);
+		}
 	}
 	
 	public void AddStaffSlot(Staff staff) {
