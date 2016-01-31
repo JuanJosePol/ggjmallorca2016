@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Jammer : MonoBehaviour
 {
@@ -51,45 +52,50 @@ public class Jammer : MonoBehaviour
     {
         assignedTable = newTable;
     }
-
-    // This is a Debug Function
+    
     public void FindFreeTable()
     {
-        Debug.LogWarning("Debug Function called: Jammer.FindFreeTable");
+        List<Table> freeTables = new List<Table>();
         foreach (var t in GameManager.instance.tables)
         {
             if (t.hasRoom)
-            {
-                t.AddJammer(this);
-                break;
-            }
+                freeTables.Add(t);
         }
+
+        Table target = freeTables[Random.Range(0, freeTables.Count)];
+        target.AddJammer(this);
     }
 
     public void FindFreeBathroom()
     {
-        Debug.LogWarning("Debug Function called: Jammer.FindFreeBathroom");
+        List<Bathroom> freeBathrooms = new List<Bathroom>();
         foreach (var b in GameManager.instance.bathrooms)
         {
             if (b.CanEnterJammer())
-            {
-                b.AddJammer(this);
-                this.assignedTable.StopWorking(this);
-            }
+                freeBathrooms.Add(b);
         }
+
+        if (freeBathrooms.Count == 0) return;
+
+        Bathroom target = freeBathrooms[Random.Range(0, freeBathrooms.Count)];
+        target.AddJammer(this);
+        this.assignedTable.StopWorking(this);
     }
 
     public void GoGetFood()
     {
-        Debug.LogWarning("Debug Function called: Jammer.GoGetFood");
+        List<FoodZone> freeFoodZones = new List<FoodZone>();
         foreach (var f in GameManager.instance.foodZones)
         {
             if (f.CanEnterJammer())
-            {
-                f.AddJammer(this);
-                this.assignedTable.StopWorking(this);
-            }
+                freeFoodZones.Add(f);
         }
+
+        if (freeFoodZones.Count == 0) return;
+
+        FoodZone target = freeFoodZones[Random.Range(0, freeFoodZones.Count)];
+        target.AddJammer(this);
+        this.assignedTable.StopWorking(this);
     }
 
     public void HaveWiFiProblem()
