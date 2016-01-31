@@ -144,7 +144,13 @@ public class FoodZone : MonoBehaviour, IStaffAssignation
 
     IEnumerator MakePhoneCall()
     {
-        yield return new WaitForSeconds(phoneCallTime);
+        float timeElapsed = 0;
+        while (timeElapsed < phoneCallTime)
+        {
+            assignedStaff.assignmentProgress = timeElapsed / phoneCallTime;
+            yield return null;
+        }
+        assignedStaff.assignmentProgress = -1;
 
         assignedStaff.canBeSelected = false;
 

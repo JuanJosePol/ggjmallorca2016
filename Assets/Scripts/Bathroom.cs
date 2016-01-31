@@ -152,7 +152,13 @@ public class Bathroom : MonoBehaviour, IStaffAssignation
     {
         WCMeshFilter.mesh = ClosedWC.sharedMesh;
 
-        yield return new WaitForSeconds(repairTime);
+        float timeElapsed = 0;
+        while (timeElapsed < repairTime)
+        {
+            assignedStaff.assignmentProgress = timeElapsed / repairTime;
+            yield return null;
+        }
+        assignedStaff.assignmentProgress = -1;
 
         isBroken = false;
         WCMeshFilter.mesh = OpenWC.sharedMesh;
