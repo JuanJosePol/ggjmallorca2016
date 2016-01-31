@@ -9,6 +9,8 @@ public class LevelManager : MonoBehaviour {
 	public int requiredGames=0;
 	public int createdGames=0;
 	
+	public int currentLevel=1;
+	
 	public static LevelManager instance;
 	
 	void Start () {
@@ -42,6 +44,7 @@ public class LevelManager : MonoBehaviour {
 	}
 	
 	void LoadNextLevel() {
+		currentLevel++;
 		AssetCatalog.instance.PlaySound("levelfinished");
 		levelDuration*=1.2f;
 		requiredGames+=3;

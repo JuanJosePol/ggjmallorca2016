@@ -83,15 +83,15 @@ public class GameManager : MonoBehaviour
         {
             timeSinceLastProblem = 0;
 
-            float problemType = UnityEngine.Random.Range(0, problemTypeCount);
-            if (problemType == 0)
-                GenerateWiFiProblem();
-            else if (problemType == 1)
-                GenerateTrollStaff();
-            else if (problemType == 2)
+	        float problemType = UnityEngine.Random.Range(0, 100);
+	        if (problemType < 30)
                 GenerateBathroomProblem();
-            else if (problemType == 3)
-                GenerateFoodProblem();   
+	        else if (problemType < 50)
+	            GenerateTrollStaff();
+	        else if (problemType < 90 && LevelManager.instance.currentLevel>=2)
+	            GenerateFoodProblem();
+	        else
+	            GenerateWiFiProblem();
         }
 
         if (Input.GetMouseButtonDown(0))
