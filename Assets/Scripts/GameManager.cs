@@ -113,7 +113,14 @@ public class GameManager : MonoBehaviour
     {
         Jammer troubledJammer = PickRandomWorkingJammer();
         if (troubledJammer != null)
-            troubledJammer.HaveWiFiProblem();
+        {
+            List<Jammer> table = new List<Jammer>();
+            table.AddRange(troubledJammer.assignedTable.jammers);
+            foreach (Jammer j in table)
+            {
+                j.HaveWiFiProblem();
+            }
+        }
     }
 
     private void GenerateTrollStaff()
