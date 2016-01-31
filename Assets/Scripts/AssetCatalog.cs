@@ -12,6 +12,8 @@ public class AssetCatalog : MonoBehaviour {
 	public Mesh[] hats;
 	public Mesh[] heads;
 	
+	public Texture2D[] gameCovers;
+	
 	void Awake() {
 		instance=this;
 		bodies	= Resources.LoadAll<Mesh>("VoxelModels/Bodies");
@@ -19,6 +21,7 @@ public class AssetCatalog : MonoBehaviour {
 		hairs	= Resources.LoadAll<Mesh>("VoxelModels/Hairs");
 		hats	= Resources.LoadAll<Mesh>("VoxelModels/Hats");
 		heads	= Resources.LoadAll<Mesh>("VoxelModels/Heads");
+		gameCovers=Resources.LoadAll<Texture2D>("GameCovers");
 	}
 	
 	void Update () {

@@ -128,9 +128,9 @@ public class GameManager : MonoBehaviour
         return game;
     }
 	
-	string[] firstGameNameWords = {"Super", "Metro",  "Infini", "Mine"     , "Nom",     "Mini",  "Over"   , "Picco",     "Triangle", "Another",		"Call of",		"Attack of", "Looking for", "Jammer", "The Legend of", "Into the", "Fart", "Epic", "Academy of", "Violence", "Pro", "Ultra", "Tech", "Nerd", "Annoying", "Gizmo", "Dinosaur", "Into the", "Love", "Goat", "Penguin", "Dog", "Masters of"};
-	string[] secondGameNameWords= {"Bario", "Noid",   "Fun",    "Draft"    , "Om",      "Creed", "Toto"   , "Lovers",    "Heroes",    "Ritual",		"Dummies",		"Revenge", "Sensations", "Drums", "Balls", "Drugs", "Problems", "Dislexia", "Monogamy", "Manager", "Tycoon", "Hair", "Rock", "Vegan", "Jam", "Pop", "Hero", "Pizza"};
-	string[] thirdGameNameWords = {"Gloss", "Fission","Plus",   "Adventure", "Legends", "Croc",  "Oddisey", "Obsession", "2016"    , ": The Game",	"Chronicles",	"Returns", "Revival", "2", "3", "X", "& Coffee", "& Luigi", "Redemption", "Revelations", "Evolution", "Kart", "Neighbour", "Simulator", "Friends", "Friends"};
+	string[] firstGameNameWords = {"Super", "Metro",  "Infini", "Mine"     , "Nom",     "Mini",  "Over"   , "Picco",     "Triangle", "Another",		"Call of",		"Attack of", "Looking for", "Jammer", "The Legend of", "Into the", "Fart", "Epic", "Academy of", "Violence", "Pro", "Ultra", "Tech", "Nerd", "Annoying", "Gizmo", "Dinosaur", "Into the", "Love", "Goat", "Penguin", "Dog", "Masters of", "League of"};
+	string[] secondGameNameWords= {"Bario", "Noid",   "Fun",    "Draft"    , "Om",      "Creed", "Toto"   , "Lovers",    "Heroes",    "Ritual",		"Dummies",		"Revenge", "Sensations", "Drums", "Balls", "Drugs", "Problems", "Dislexia", "Monogamy", "Manager", "Violence", "Tycoon", "Hair", "Rock", "Vegan", "Jam", "Pop", "Hero", "Pizza"};
+	string[] thirdGameNameWords = {"Gloss", "Fission","Plus",   "Adventure", "Legends", "Croc",  "Oddisey", "Obsession", "2016"    , ": The Game",	"Chronicles",	"Returns", "Revival", "2", "3", "X", "& Coffee", "& Luigi", "Redemption", "Revelations", "Evolution", "Kart", "Neighbour", "Simulator", "Friends"};
 	
 	public string GenerateGameName() {
 		string name="";

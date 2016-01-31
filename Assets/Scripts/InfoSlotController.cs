@@ -22,6 +22,7 @@ public class InfoSlotController : MonoBehaviour {
 		if (gameInfo!=null) {
 			slider.value=gameInfo.progress;
 			label.text=gameInfo.name;
+			image.texture=AssetCatalog.instance.gameCovers.GetRandom();
 		}
 		if (staffInfo!=null) {
 			slider.value=staffInfo.stamina/100f;
