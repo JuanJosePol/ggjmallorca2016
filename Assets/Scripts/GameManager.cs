@@ -36,6 +36,8 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public List<FoodZone> foodZones = new List<FoodZone>();
     [HideInInspector]
+    public Dorm dorm;
+    [HideInInspector]
     public List<Game> games = new List<Game>();
 
     private int space = 0;
