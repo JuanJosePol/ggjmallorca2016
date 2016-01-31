@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using DG.Tweening;
 
 public class Workplace : MonoBehaviour {
 	
@@ -14,7 +15,10 @@ public class Workplace : MonoBehaviour {
 	
 	bool claimed=false;
 	
+	Vector3 startScale;
+	
 	void Start () {
+		startScale=transform.localScale;
 		PickJammerType();
 		PickActiveObject();
 	}
@@ -46,6 +50,8 @@ public class Workplace : MonoBehaviour {
 		if (!claimed) {
 			claimed=true;
 			activeObject.SetActive(true);
+			transform.position-=Vector3.up*2;
+			transform.DOMove(transform.position+Vector3.up*2, 1, false).SetEase(Ease.OutExpo);//transform.DOScale(startScale, 1);
 		}
 	}
 }
