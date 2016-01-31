@@ -21,6 +21,18 @@ public class Staff : MonoBehaviour
 		remainingNames.Remove(name);
 	}
 	
+	void Update() {
+		if (assignation!=null) {
+			stamina-=Time.deltaTime;
+		} else {
+			stamina+=Time.deltaTime;
+		}
+		stamina=Mathf.Clamp(stamina, 0, 100);
+		if (stamina<=1) {
+			Unassign();
+		}
+	}
+	
     void Awake()
     {
 	    GameManager.instance.staff.Add(this);
@@ -46,8 +58,12 @@ public class Staff : MonoBehaviour
 
     public void Assign(IStaffAssignation newAssignation)
     {
-        if (assignation != null) assignation.UnassignStaff();
-        assignation = newAssignation;
+	    if (stamina>20) {
+	    	if (assignation != null) assignation.UnassignStaff();
+		    assignation = newAssignation;
+	    } else {
+	    	//Try to sleep
+	    }
     }
 
     public void Unassign()

@@ -79,7 +79,7 @@ public abstract class OnSiteProblem : MonoBehaviour, IStaffAssignation
     IEnumerator ProcessCoroutine()
     {
         yield return new WaitForSeconds(repairTime);
-        assignedStaff.Unassign();
+	    assignedStaff.Unassign();
         jammer.assignedTable.AddJammer(jammer);
         this.activated = false;
     }
