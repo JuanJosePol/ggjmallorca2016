@@ -113,6 +113,8 @@ public class GameManager : MonoBehaviour
                 t = Mathf.Max(0, (jammers.Count - 4) / (float)space);
             if (Application.loadedLevel == 1)
                 t = Mathf.Max(0, (jammers.Count - 10) / 40f);
+            if (Application.loadedLevel == 2)
+                t = Mathf.Max(0, (jammers.Count - 5) / 40f);
             if (Application.loadedLevel == 3)
                 t = Mathf.Max(0, (jammers.Count - 5) / 40f);
             
