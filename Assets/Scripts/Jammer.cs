@@ -34,8 +34,8 @@ public class Jammer : MonoBehaviour
 	    walker.isJammer=true;
 	    GenerateJammerName();
 
-        trollStaff = gameObject.GetComponent<TrollStaff>();
-        wifiProblem = gameObject.GetComponent<WiFiProblem>();
+        trollStaff = gameObject.GetComponentInChildren<TrollStaff>();
+        wifiProblem = gameObject.GetComponentInChildren<WiFiProblem>();
     }
 	
 	public void LoadDialog(DialogType dialogType) {

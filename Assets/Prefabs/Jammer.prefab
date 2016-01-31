@@ -75,11 +75,27 @@ GameObject:
   - 114: {fileID: 11426832}
   - 195: {fileID: 19512302}
   - 136: {fileID: 13682742}
-  - 114: {fileID: 11486952}
-  - 114: {fileID: 11401954}
-  - 114: {fileID: 11418092}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Jammer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &153840
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 468568}
+  - 114: {fileID: 11440966}
+  - 114: {fileID: 11486478}
+  - 136: {fileID: 13629828}
+  - 114: {fileID: 11466490}
+  m_Layer: 8
+  m_Name: Problems
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -294,6 +310,7 @@ Transform:
   m_Children:
   - {fileID: 459922}
   - {fileID: 470630}
+  - {fileID: 468568}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &459922
@@ -334,6 +351,18 @@ Transform:
   m_Children:
   - {fileID: 464372}
   m_Father: {fileID: 438848}
+  m_RootOrder: 2
+--- !u!4 &468568
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 153840}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 455714}
   m_RootOrder: 2
 --- !u!4 &470630
 Transform:
@@ -549,47 +578,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 115986}
   m_Mesh: {fileID: 4300000, guid: 019b2c0b7d1aaf94b8c0d1e1d89a4dc8, type: 3}
---- !u!114 &11401954
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 152434}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 4
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 11486952}
-          m_MethodName: OnClick
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 11418092}
-          m_MethodName: OnClick
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
-        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  delegates: []
 --- !u!114 &11406464
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -621,18 +609,6 @@ MonoBehaviour:
   bodyBase: {fileID: 3301458}
   skinPalette: {fileID: 2800000, guid: b534e441759d3664f9fe6684e19ba173, type: 3}
   hairPalette: {fileID: 2800000, guid: a6556bb96eaf94946872671ef16e4925, type: 3}
---- !u!114 &11418092
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 152434}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e136dc557c3fac544ae1e0f775121de1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  assignedStaff: {fileID: 0}
 --- !u!114 &11426832
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -645,15 +621,68 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walker: {fileID: 0}
---- !u!114 &11486952
+--- !u!114 &11440966
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 152434}
+  m_GameObject: {fileID: 153840}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 86839baff48da684187d628b63c1560b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  assignedStaff: {fileID: 0}
+--- !u!114 &11466490
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 153840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11440966}
+          m_MethodName: OnClick
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 11486478}
+          m_MethodName: OnClick
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
+--- !u!114 &11486478
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 153840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e136dc557c3fac544ae1e0f775121de1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   assignedStaff: {fileID: 0}
@@ -682,6 +711,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bd6f44057a115645b378d773e9b66d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!136 &13629828
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 153840}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!136 &13682742
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -783,7 +825,7 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 11418092}
+      objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: OnClick

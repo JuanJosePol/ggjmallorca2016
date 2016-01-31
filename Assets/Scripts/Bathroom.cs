@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections;
-using System;
 
 public class Bathroom : MonoBehaviour, IStaffAssignation
 {
@@ -17,7 +16,7 @@ public class Bathroom : MonoBehaviour, IStaffAssignation
 
     [HideInInspector]
     public Jammer jammer;
-
+    
     private bool _isBroken;
     public bool isBroken
     {
@@ -156,6 +155,7 @@ public class Bathroom : MonoBehaviour, IStaffAssignation
 
         yield return new WaitForSeconds(repairTime);
 
+        isBroken = false;
         WCMeshFilter.mesh = OpenWC.sharedMesh;
 
         assignedStaff.walker.MoveTo(staffPosition.position, false, FinishRepairs);
@@ -163,7 +163,6 @@ public class Bathroom : MonoBehaviour, IStaffAssignation
 
     private void FinishRepairs()
     {
-        isBroken = false;
         assignedStaff.Unassign();
         if (jammer != null)
             Process();

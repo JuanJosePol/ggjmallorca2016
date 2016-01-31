@@ -9,13 +9,14 @@ public abstract class OnSiteProblem : MonoBehaviour, IStaffAssignation
     public Staff assignedStaff;
 
     protected Jammer jammer;
-    private bool _activated = false;
+    private bool _activated;
     public bool activated
     {
         get { return _activated; }
         set
         {
             _activated = value;
+            GetComponent<Collider>().enabled = value;
             if (value)
                 OnActivate();
             else
@@ -23,13 +24,13 @@ public abstract class OnSiteProblem : MonoBehaviour, IStaffAssignation
         }
     }
     protected float repairTime = 3f;
-
     public abstract void OnActivate();
     public abstract void OnDeactivate();
 
     void Awake()
     {
-        jammer = GetComponent<Jammer>();
+        jammer = GetComponentInParent<Jammer>();
+        activated = false;
     }
 
     public void OnClick()
@@ -51,6 +52,7 @@ public abstract class OnSiteProblem : MonoBehaviour, IStaffAssignation
 
         newStaff.Assign(this);
         assignedStaff = newStaff;
+        GetComponent<Collider>().enabled = false;
         newStaff.walker.MoveTo(staffPosition, false, OnStaffReady);
     }
 
@@ -68,6 +70,7 @@ public abstract class OnSiteProblem : MonoBehaviour, IStaffAssignation
     public void UnassignStaff()
     {
         StopAllCoroutines();
+        GetComponent<Collider>().enabled = true;
         assignedStaff = null;
     }
 

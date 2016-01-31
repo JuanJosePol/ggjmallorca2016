@@ -5,18 +5,20 @@ public class JammerDialog : MonoBehaviour {
 	
 	SpriteRenderer spriteRenderer;
 	
-	void Start () {
+	void Awake () {
 		spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.sprite = null;
 	}
 	
 	public void LoadDialog(DialogType type) {
+        if (spriteRenderer != null)
 		spriteRenderer.sprite = AssetCatalog.instance.dialogs.GetByName("Dialog"+type);
 	}
 
     public void HideDialog()
     {
-        spriteRenderer.sprite = null;
+        if (spriteRenderer != null)
+            spriteRenderer.sprite = null;
     }
 }
 
