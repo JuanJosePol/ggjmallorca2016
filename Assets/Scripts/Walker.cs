@@ -4,7 +4,7 @@ using System.Collections;
 
 public class Walker : MonoBehaviour
 {
-	private NavMeshAgent navAgent;
+	public NavMeshAgent navAgent;
 	public bool isJammer=false;
 	
 	private float turningSpeed=5;
@@ -41,6 +41,7 @@ public class Walker : MonoBehaviour
         if (delayed)
             yield return new WaitForSeconds(UnityEngine.Random.Range(0.5f, 1.0f));
 
+        if (navAgent.enabled == false) navAgent.enabled = true;
         navAgent.SetDestination(position);
 
         float originalRadius = navAgent.radius;
