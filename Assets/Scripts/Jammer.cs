@@ -37,6 +37,10 @@ public class Jammer : MonoBehaviour
         trollStaff = gameObject.GetComponent<TrollStaff>();
         wifiProblem = gameObject.GetComponent<WiFiProblem>();
     }
+	
+	public void LoadDialog(DialogType dialogType) {
+		GetComponentInChildren<JammerDialog>().LoadDialog(dialogType);
+	}
 
     public void AssignTable(Table newTable)
     {
