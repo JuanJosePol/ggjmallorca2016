@@ -37,6 +37,7 @@ public class InfoSlotListManager : MonoBehaviour {
 		InfoSlotController newSlotcontroller=newSlot.GetComponent<InfoSlotController>();
 		newSlotcontroller.gameInfo=game;
 		newSlot.transform.SetParent(transform);
+		newSlot.transform.SetSiblingIndex(0);
 	}
 }
 

@@ -42,7 +42,8 @@ public class CheckInZone : MonoBehaviour, IStaffAssignation
             return;
 
         newStaff.Assign(this);
-        assignedStaff = newStaff;
+	    AssetCatalog.instance.PlaySound("task");
+	    assignedStaff = newStaff;
         assignedStaff.walker.MoveTo(staffPosition.position, false, OnStaffReady);
     }
 
@@ -70,7 +71,8 @@ public class CheckInZone : MonoBehaviour, IStaffAssignation
     }
     
     public void Process()
-    {
+	{
+		AssetCatalog.instance.PlaySound("ticketcash");
         StartCoroutine(ProcessCoroutine());
     }
 
@@ -93,6 +95,7 @@ public class CheckInZone : MonoBehaviour, IStaffAssignation
         {
             AddJammer(waitingQueue.GetNextJammer());
         }
+	    
     }
 
     public void OnClick()

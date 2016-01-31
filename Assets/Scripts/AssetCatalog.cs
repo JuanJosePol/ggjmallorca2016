@@ -28,6 +28,19 @@ public class AssetCatalog : MonoBehaviour {
 		sounds=Resources.LoadAll<AudioClip>("Sounds");
 	}
 	
+	public void PlaySound(string clipName) {
+		AudioClip selectedClip=null;
+		foreach (AudioClip clip in sounds) {
+			if (clip.name==clipName) {
+				selectedClip=clip;
+			}
+		}
+		if (selectedClip!=null) {
+			AudioSource.PlayClipAtPoint(selectedClip, Camera.main.transform.position);
+		} else {
+		}
+	}
+	
 }
 
 public static class CatalogExtensions {

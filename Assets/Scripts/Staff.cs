@@ -11,7 +11,7 @@ public class Staff : MonoBehaviour
 	public float stamina=100;
 	public Slider progressSlider;
 
-    [HideInInspector]private IStaffAssignation assignation;
+	[HideInInspector]public IStaffAssignation assignation;
 	[HideInInspector]public StaffRenderer staffRenderer;
 	GameObject selectionArrow;
 	
@@ -100,7 +100,8 @@ public class Staff : MonoBehaviour
     }
 
     public void OnClick()
-    {
+	{
+		AssetCatalog.instance.PlaySound("select");
         GameManager.instance.SelectStaff(this);
     }
 }

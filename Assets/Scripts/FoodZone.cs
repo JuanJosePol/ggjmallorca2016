@@ -116,8 +116,9 @@ public class FoodZone : MonoBehaviour, IStaffAssignation
             return;
 
         newStaff.Assign(this);
-        assignedStaff = newStaff;
-        assignedStaff.walker.MoveTo(staffPosition.position, false, OnStaffReady);
+	    assignedStaff = newStaff;
+	    AssetCatalog.instance.PlaySound("task");
+	    assignedStaff.walker.MoveTo(staffPosition.position, false, OnStaffReady);
     }
 
     public void UnassignStaff()
@@ -144,7 +145,9 @@ public class FoodZone : MonoBehaviour, IStaffAssignation
 
     IEnumerator MakePhoneCall()
     {
-        float timeElapsed = 0;
+	    
+	    AssetCatalog.instance.PlaySound("phone");
+	    float timeElapsed = 0;
         while (timeElapsed < phoneCallTime)
         {
             timeElapsed += Time.deltaTime;
@@ -153,7 +156,10 @@ public class FoodZone : MonoBehaviour, IStaffAssignation
         }
         assignedStaff.assignmentProgress = -1;
 
-        assignedStaff.canBeSelected = false;
+	    assignedStaff.canBeSelected = false;
+	    if (GameManager.instance.selectedStaff==assignedStaff) {
+	    	GameManager.instance.DeselectStaff();
+	    }
 
         assignedStaff.walker.MoveTo(FindObjectOfType<JammerGenerator>().transform.position, false, () => { StartCoroutine(GoBuyFood()); });
     }
