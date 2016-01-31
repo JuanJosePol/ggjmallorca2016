@@ -20,7 +20,9 @@ public class NavMeshNavigator : MonoBehaviour
                     NavMeshHit navHit;
                     if (NavMesh.SamplePosition(hitInfo.point, out navHit, 0.1f, NavMesh.AllAreas))
                     {
-                        GameManager.instance.selectedStaff.walker.MoveTo(navHit.position, false);
+                        Staff staff = GameManager.instance.selectedStaff;
+                        staff.Unassign();
+                        staff.walker.MoveTo(navHit.position, false);
                     }
 
                 }

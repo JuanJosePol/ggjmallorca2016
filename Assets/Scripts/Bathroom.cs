@@ -143,7 +143,6 @@ public class Bathroom : MonoBehaviour, IStaffAssignation
         if (GameManager.instance.selectedStaff != null)
         {
             this.AssignStaff(GameManager.instance.selectedStaff);
-            GameManager.instance.DeselectStaff();
         }
     }
 
