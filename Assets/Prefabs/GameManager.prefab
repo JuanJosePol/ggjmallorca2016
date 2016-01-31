@@ -14,6 +14,7 @@ GameObject:
   - 114: {fileID: 11422842}
   - 114: {fileID: 11453248}
   - 114: {fileID: 11473768}
+  - 114: {fileID: 11469254}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -120,6 +121,17 @@ MonoBehaviour:
   bathrooms: []
   foodZones: []
   games: []
+--- !u!114 &11469254
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 137972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb07e88071c727946bbbde3f4bfc7add, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11473768
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -133,6 +145,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelDuration: 120
   elapsedLevelTime: 0
+  createdGames: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
