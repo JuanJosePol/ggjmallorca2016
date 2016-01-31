@@ -24,7 +24,7 @@ RenderSettings:
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 1
+  m_AmbientMode: 0
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
@@ -224,7 +224,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 299890136}
-  m_LocalRotation: {x: 0.6598462, y: 0.20648836, z: 0.24333254, w: 0.68026096}
+  m_LocalRotation: {x: 0.56280875, y: 0.0035072733, z: 0.42172715, w: 0.710901}
   m_LocalPosition: {x: -0.8457031, y: 6.0117188, z: 0.3955078}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -350,52 +350,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ddd7ddfa0c7c82446b547e96cc1b0410, type: 2}
   m_IsPrefabParent: 0
---- !u!1001 &593892731
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 455714, guid: cf63d91736e21144c83fff684951c9ba, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 455714, guid: cf63d91736e21144c83fff684951c9ba, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 455714, guid: cf63d91736e21144c83fff684951c9ba, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 455714, guid: cf63d91736e21144c83fff684951c9ba, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 455714, guid: cf63d91736e21144c83fff684951c9ba, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 455714, guid: cf63d91736e21144c83fff684951c9ba, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 455714, guid: cf63d91736e21144c83fff684951c9ba, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 455714, guid: cf63d91736e21144c83fff684951c9ba, type: 2}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 152434, guid: cf63d91736e21144c83fff684951c9ba, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: cf63d91736e21144c83fff684951c9ba, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &611168856
 GameObject:
   m_ObjectHideFlags: 0
@@ -485,6 +439,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 801397671}
+  - 114: {fileID: 801397672}
   m_Layer: 0
   m_Name: Level
   m_TagString: Untagged
@@ -514,6 +469,19 @@ Transform:
   - {fileID: 1743631961}
   m_Father: {fileID: 0}
   m_RootOrder: 1
+--- !u!114 &801397672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 801397670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f739f81b264bd04caaa4a506401f269, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelDuration: 120
+  elapsedLevelTime: 0
 --- !u!1 &858173505 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 197758, guid: b297b2dfb331eb64aa86854a25eafd48, type: 2}
