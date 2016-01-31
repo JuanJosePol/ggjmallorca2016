@@ -87,7 +87,17 @@ public class GameManager : MonoBehaviour
             else if (problemType == 2)
                 GenerateBathroomProblem();
             else if (problemType == 3)
-                GenerateFoodProblem();
+                GenerateFoodProblem();   
+        }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hitInfo;
+            if (!Physics.Raycast(ray, out hitInfo) || (hitInfo.collider.gameObject.layer != LayerMask.NameToLayer("Clickable")))
+            {
+                DeselectStaff();
+            }
         }
     }
 
