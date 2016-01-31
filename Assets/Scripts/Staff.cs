@@ -50,6 +50,7 @@ public class Staff : MonoBehaviour
 	    staffRenderer=GetComponentInChildren<StaffRenderer>();
 	    selectionArrow=GetComponentInChildren<Bounce>().gameObject;
 	    selectionArrow.SetActive(false);
+        assignmentProgress = -1;
     }
 	
 	public void Select() {

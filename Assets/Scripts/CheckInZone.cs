@@ -76,7 +76,14 @@ public class CheckInZone : MonoBehaviour, IStaffAssignation
 
     IEnumerator ProcessCoroutine()
     {
-        yield return new WaitForSeconds(CheckInTime);
+        float timeElapsed = 0;
+        while (timeElapsed < CheckInTime)
+        {
+            assignedStaff.assignmentProgress = timeElapsed / CheckInTime;
+            yield return null;
+        }
+        assignedStaff.assignmentProgress = -1;
+
         jammerReady = false;
         jammer.HideDialog();
         jammer.FindFreeTable();
