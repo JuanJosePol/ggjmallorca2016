@@ -43,6 +43,7 @@ public class GameManager : MonoBehaviour
     private int space = 0;
     private float timeSinceLastProblem = 0;
     private int problemTypeCount = 2; // WiFi and Troll are always possible;
+    private AudioSource crowdAudio;
 
     public bool hasRoomForJammers
     {
@@ -65,6 +66,7 @@ public class GameManager : MonoBehaviour
             problemTypeCount += 1;
         }
 
+        crowdAudio = Camera.main.GetComponent<AudioSource>();
 	}
 
     void Start()
@@ -103,6 +105,17 @@ public class GameManager : MonoBehaviour
                 DeselectStaff();
             }
         }
+
+        if (crowdAudio != null)
+        {
+            float t;
+            if (crowdAudio.clip.name == "small_crowd")
+                t = Mathf.Max(0, (jammers.Count - 4) / (float)space);
+            else
+                t = Mathf.Max(0, (jammers.Count - 10) / 40f);
+
+            crowdAudio.volume = Mathf.Lerp(0, 1, t);
+        }       
     }
 
     private void GenerateBathroomProblem()
