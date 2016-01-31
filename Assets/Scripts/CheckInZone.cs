@@ -79,6 +79,7 @@ public class CheckInZone : MonoBehaviour, IStaffAssignation
         float timeElapsed = 0;
         while (timeElapsed < CheckInTime)
         {
+            timeElapsed += Time.deltaTime;
             assignedStaff.assignmentProgress = timeElapsed / CheckInTime;
             yield return null;
         }

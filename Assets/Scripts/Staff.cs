@@ -27,19 +27,23 @@ public class Staff : MonoBehaviour
 	}
 	
 	void Update() {
-		if (assignation!=null) {
-			progressSlider.gameObject.SetActive(true);
-			progressSlider.value+=Time.deltaTime;
-			stamina-=Time.deltaTime;
-		} else {
-			stamina+=Time.deltaTime;
-			progressSlider.gameObject.SetActive(false);
-			progressSlider.value=0;
-		}
+        // Unassing if the staff is too tired
 		stamina=Mathf.Clamp(stamina, 0, 100);
 		if (stamina<=1) {
 			Unassign();
 		}
+
+        progressSlider.gameObject.SetActive(assignmentProgress > 0);//.enabled = assignmentProgress > 0;
+        progressSlider.value = assignmentProgress;
+		//if (assignation!=null) {
+		//	progressSlider.gameObject.SetActive(true);
+		//	progressSlider.value+=Time.deltaTime;
+		//	stamina-=Time.deltaTime;
+		//} else {
+		//	stamina+=Time.deltaTime;
+		//	progressSlider.gameObject.SetActive(false);
+		//	progressSlider.value=0;
+		//}
 	}
 	
     void Awake()
@@ -83,6 +87,7 @@ public class Staff : MonoBehaviour
         {
             assignation.UnassignStaff();
             assignation = null;
+            assignmentProgress = -1;
         }
     }
 

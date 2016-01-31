@@ -147,6 +147,7 @@ public class FoodZone : MonoBehaviour, IStaffAssignation
         float timeElapsed = 0;
         while (timeElapsed < phoneCallTime)
         {
+            timeElapsed += Time.deltaTime;
             assignedStaff.assignmentProgress = timeElapsed / phoneCallTime;
             yield return null;
         }
@@ -168,8 +169,8 @@ public class FoodZone : MonoBehaviour, IStaffAssignation
     { 
         bool needHelp = foodRations == 0;
         foodRations = MaxFoodRations;
-        assignedStaff.Unassign();
         assignedStaff.canBeSelected = true;
+        assignedStaff.Unassign();
         if (jammer != null && needHelp)
             Process();
     }

@@ -80,6 +80,7 @@ public abstract class OnSiteProblem : MonoBehaviour, IStaffAssignation
         float elapsedTime = 0;
         while (elapsedTime < repairTime)
         {
+            elapsedTime += Time.deltaTime;
             assignedStaff.assignmentProgress = elapsedTime / repairTime;
             yield return null;
         }
