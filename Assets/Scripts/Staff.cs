@@ -29,7 +29,7 @@ public class Staff : MonoBehaviour
 	void Update() {
 		if (assignation!=null) {
 			progressSlider.gameObject.SetActive(true);
-			progressSlider.value+=Time.deltaTime;
+			progressSlider.value+=assignmentProgress;
 			stamina-=Time.deltaTime;
 		} else {
 			stamina+=Time.deltaTime;
