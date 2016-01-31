@@ -13,6 +13,7 @@ public class AssetCatalog : MonoBehaviour {
 	public Mesh[] heads;
 	
 	public Texture2D[] gameCovers;
+	public Sprite[] dialogs;
 	
 	void Awake() {
 		instance=this;
@@ -22,6 +23,7 @@ public class AssetCatalog : MonoBehaviour {
 		hats	= Resources.LoadAll<Mesh>("VoxelModels/Hats");
 		heads	= Resources.LoadAll<Mesh>("VoxelModels/Heads");
 		gameCovers=Resources.LoadAll<Texture2D>("GameCovers");
+		dialogs=Resources.LoadAll<Sprite>("Dialogs");
 	}
 	
 	void Update () {
@@ -30,7 +32,18 @@ public class AssetCatalog : MonoBehaviour {
 }
 
 public static class CatalogExtensions {
+	
 	public static T GetRandom<T>(this T[] array) {
 		return array[Random.Range(0, array.Length)];
 	}
+	
+	public static T GetByName<T>(this T[] array, string name) {
+		for (int i = 0; i < array.Length; i++) {
+			if (array[i].ToString()==name) {
+				return array[i];
+			}
+		}
+		return default(T);
+	}
+	
 }
