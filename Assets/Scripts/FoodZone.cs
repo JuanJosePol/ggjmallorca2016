@@ -146,6 +146,8 @@ public class FoodZone : MonoBehaviour, IStaffAssignation
     {
         yield return new WaitForSeconds(phoneCallTime);
 
+        assignedStaff.canBeSelected = false;
+
         assignedStaff.walker.MoveTo(FindObjectOfType<JammerGenerator>().transform.position, false, () => { StartCoroutine(GoBuyFood()); });
     }
 
@@ -161,6 +163,7 @@ public class FoodZone : MonoBehaviour, IStaffAssignation
         bool needHelp = foodRations == 0;
         foodRations = MaxFoodRations;
         assignedStaff.Unassign();
+        assignedStaff.canBeSelected = true;
         if (jammer != null && needHelp)
             Process();
     }
